@@ -122,7 +122,7 @@
     <repository>
       <id>js-repo-svn</id>
       <name>Internal dependencies from SVN</name>
-      <url>file:///Users/duffy/projects/current/jasperreports-server-4.7.0-src/jasperserver-repo</url>
+      <url>${jasperserver-repo}</url>
       <snapshots>
         <enabled>true</enabled>
         <updatePolicy>always</updatePolicy>
