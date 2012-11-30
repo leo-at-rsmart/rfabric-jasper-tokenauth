@@ -38,9 +38,10 @@ public class AuthTokenAuthentication implements Authentication{
 
   private static final Log LOG = LogFactory.getLog(AuthTokenAuthentication.class);
 
-  protected transient Signature signature = new Signature();
-  protected transient AuthToken authToken = null;
-  protected transient String    name = null;
+  protected transient Signature             signature = new Signature();
+  protected transient AuthToken             authToken = null;
+  protected transient String                name = null;
+  protected transient GrantedAuthority[]    authorities = null;
 
   public AuthTokenAuthentication(final AuthToken token) {
     LOG.debug("new AuthToken(****, " + token + ")");
@@ -68,10 +69,16 @@ public class AuthTokenAuthentication implements Authentication{
     this.name = name;
   }
 
+  @SuppressWarnings("serial")
   public GrantedAuthority[] getAuthorities() {
-    GrantedAuthority[] authorities = new GrantedAuthority[1];
     
-    authorities[0] = new GrantedAuthority() {
+    if (authorities != null) {
+      return authorities;
+    }
+    
+    GrantedAuthority[] mockAuthorities = new GrantedAuthority[1];
+    
+    mockAuthorities[0] = new GrantedAuthority() {
 
       public int compareTo(Object o) {
         GrantedAuthority that = (GrantedAuthority)o;
@@ -83,7 +90,11 @@ public class AuthTokenAuthentication implements Authentication{
       }
       
     };
-    return authorities;
+    return mockAuthorities;
+  }
+  
+  void setAuthorities(final GrantedAuthority authorities[]) {
+    this.authorities = authorities;
   }
 
   public Object getCredentials() {
