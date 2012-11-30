@@ -7,3 +7,6 @@
 
 # Maven
 target
+
+# config files (eg. IDE detritus)
+.*
