@@ -14,6 +14,7 @@ public class AuthTokenAuthenticationProvider implements AuthenticationProvider {
 
   protected transient Signature signature = new Signature();
   protected transient String secret = null;
+  protected transient ExternalUserProvider userProvider = null;
   
   public AuthTokenAuthenticationProvider () {}
   
@@ -23,6 +24,10 @@ public class AuthTokenAuthenticationProvider implements AuthenticationProvider {
   
   public void setSecret (final String secret) {
     this.secret = secret;
+  }
+  
+  public void setExternalUserProvider (final ExternalUserProvider provider) {
+    this.userProvider = provider;
   }
   
   public Authentication authenticate(final Authentication authn)
@@ -45,14 +50,23 @@ public class AuthTokenAuthenticationProvider implements AuthenticationProvider {
       throw new IllegalStateException("sharedSecret == null || empty");
     }
 
+    final String name = authToken.getName();
+    
+    if (!userProvider.userExists(name)) {
+      LOG.error("User does not exist for token " + authToken);
+      authn.setAuthenticated(false);
+      return authn;
+    }
+    
     try {
       //validate the hash
-      final String message = authToken.getName() + AuthToken.TOKEN_SEPARATOR + authToken.getNonce();
+      final String message = name + AuthToken.TOKEN_SEPARATOR + authToken.getNonce();
       final String hmac = signature.calculateRFC2104HMAC(message, secret);
       if (hmac.equals(authToken.getHash())) {
         LOG.debug("token is valid");
         // the user is Ok, we will trust it.
-        authentication.setName(authToken.getName());
+        authentication.setName(name);
+        authentication.setAuthorities(userProvider.getAuthoritiesForUser(name));
         return authentication;
       } else {
         LOG.warn("invalid token: " + authToken);

@@ -69,28 +69,8 @@ public class AuthTokenAuthentication implements Authentication{
     this.name = name;
   }
 
-  @SuppressWarnings("serial")
   public GrantedAuthority[] getAuthorities() {
-    
-    if (authorities != null) {
-      return authorities;
-    }
-    
-    GrantedAuthority[] mockAuthorities = new GrantedAuthority[1];
-    
-    mockAuthorities[0] = new GrantedAuthority() {
-
-      public int compareTo(Object o) {
-        GrantedAuthority that = (GrantedAuthority)o;
-        return getAuthority().compareTo(that.getAuthority());
-      }
-
-      public String getAuthority() {
-        return "ROLE_ADMIN";
-      }
-      
-    };
-    return mockAuthorities;
+    return authorities;
   }
   
   void setAuthorities(final GrantedAuthority authorities[]) {
@@ -102,7 +82,6 @@ public class AuthTokenAuthentication implements Authentication{
   }
 
   public Object getDetails() {
-    // TODO Auto-generated method stub
     return null;
   }
 
