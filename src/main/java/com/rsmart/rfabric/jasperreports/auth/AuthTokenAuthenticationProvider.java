@@ -15,7 +15,13 @@ public class AuthTokenAuthenticationProvider implements AuthenticationProvider {
   protected transient Signature signature = new Signature();
   protected transient String secret = null;
   
+  public AuthTokenAuthenticationProvider () {}
+  
   public AuthTokenAuthenticationProvider (final String secret) {
+    this.secret = secret;
+  }
+  
+  public void setSecret (final String secret) {
     this.secret = secret;
   }
   

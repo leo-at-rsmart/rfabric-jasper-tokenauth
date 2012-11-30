@@ -3,7 +3,6 @@ package com.rsmart.rfabric.jasperreports.auth;
 import com.jaspersoft.jasperserver.api.metadata.xml.domain.impl.OperationResult;
 import com.jaspersoft.jasperserver.remote.ServicesUtils;
 
-import org.apache.commons.lang.CharEncoding;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.BeansException;
@@ -13,9 +12,6 @@ import org.springframework.security.Authentication;
 import org.springframework.security.AuthenticationException;
 import org.springframework.security.AuthenticationManager;
 import org.springframework.security.context.SecurityContextHolder;
-import org.springframework.security.providers.UsernamePasswordAuthenticationToken;
-import org.springframework.security.ui.WebAuthenticationDetails;
-import org.springframework.security.ui.webapp.AuthenticationProcessingFilter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -27,7 +23,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URLDecoder;
 
 /**
  */
@@ -41,9 +36,6 @@ public class RESTTokenAuthenticationFilter implements Filter, ApplicationContext
     private static ServicesUtils servicesUtils = null;
     
     private AuthenticationManager authenticationManager;
-    private String authenticationFailureUrl;
-    private String[] excludeUrls;
-    private String sharedSecret;
 
     public void destroy() {
     }
@@ -67,12 +59,6 @@ public class RESTTokenAuthenticationFilter implements Filter, ApplicationContext
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain)
         throws IOException, ServletException {
 
-      if (sharedSecret == null) {
-        log.warn("DISABLED: no sharedSecret has been set");
-        chain.doFilter(servletRequest, servletResponse);
-        return;
-      }
-      
     	final HttpServletRequest request = (HttpServletRequest) servletRequest;
     	final HttpServletResponse response = (HttpServletResponse) servletResponse;
 
@@ -127,11 +113,6 @@ public class RESTTokenAuthenticationFilter implements Filter, ApplicationContext
     }
     
     public void init(FilterConfig fc) throws ServletException {
-      if (!applicationContext.containsBean("sharedSecret")) {
-        log.error ("DISABLED: no 'sharedSecret' has been set in the Spring application context");
-      } else {
-        sharedSecret = (String) applicationContext.getBean("sharedSecret");
-      }
     }
 
 }
