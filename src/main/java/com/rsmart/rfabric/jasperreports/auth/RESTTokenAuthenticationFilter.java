@@ -34,6 +34,9 @@ import java.net.URLDecoder;
 public class RESTTokenAuthenticationFilter implements Filter, ApplicationContextAware  {
 
     private static final Log log = LogFactory.getLog(RESTTokenAuthenticationFilter.class);
+    
+    public static final String AUTH_TOKEN_HEADER = "x-authn-token";
+
     private static ApplicationContext applicationContext = null;
     private static ServicesUtils servicesUtils = null;
     
@@ -43,6 +46,22 @@ public class RESTTokenAuthenticationFilter implements Filter, ApplicationContext
     private String sharedSecret;
 
     public void destroy() {
+    }
+    
+    /**
+     * Simply grab the authentication token from the request. Does not validate
+     * results; i.e. raw data retrieval from request.
+     * 
+     * @param request
+     * @return token
+     * @throws IllegalArgumentException
+     */
+    public final AuthToken getToken (final HttpServletRequest request) {
+      log.debug("getToken(final HttpServletRequest request)");
+      if (request == null) {
+        throw new IllegalArgumentException("request == null");
+      }
+      return new AuthToken (request.getHeader(AUTH_TOKEN_HEADER));    
     }
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain)
@@ -57,36 +76,36 @@ public class RESTTokenAuthenticationFilter implements Filter, ApplicationContext
     	final HttpServletRequest request = (HttpServletRequest) servletRequest;
     	final HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-    	AuthToken authToken = new AuthToken(sharedSecret, request);
+      //create credentials
+    	AuthToken credential = getToken(request);
 
-    	//create credentials
+    	//create Authentication object
+    	AuthTokenAuthentication authToken = new AuthTokenAuthentication(credential);
+
     	//call authenticationManager.authenticate
-    	
       Authentication authResult;
       try {
         authResult = authenticationManager.authenticate(authToken);
       } catch (AuthenticationException e) {
-        final String claimedId = authToken.getClaimedUserId();
-        
         if (log.isDebugEnabled()) {
-          log.debug("User " + claimedId + " failed to authenticate: " + e.toString());
+          log.debug("Token " + credential + " failed to authenticate: " + e.toString());
         }
         if (log.isWarnEnabled()) {
-          log.warn("User " + claimedId + " failed to authenticate: " + e.toString() + " " + e, e.getRootCause());
+          log.warn("Token " + credential + " failed to authenticate: " + e.toString() + " " + e, e.getRootCause());
         }
 
         SecurityContextHolder.getContext().setAuthentication(null);
 
         // Send an error message in the form of OperationResult...
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        OperationResult or = servicesUtils.createOperationResult(1, "Invalid username " + claimedId);
+        OperationResult or = servicesUtils.createOperationResult(1, "Failed authentication for token " + credential);
         PrintWriter pw = response.getWriter();
         pw.print("Unauthorized");
         return;
       }
 
       if (log.isDebugEnabled()) {
-        log.debug("User " + authToken.getValidatedUserId() + " authenticated: " + authResult);
+        log.debug("User " + authToken.getName() + " authenticated: " + authResult);
       }
 
       SecurityContextHolder.getContext().setAuthentication(authResult);
