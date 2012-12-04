@@ -31,6 +31,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -81,10 +82,10 @@ public class Signature {
 	 * @param key
 	 *            The signing key.
 	 * @return The Base64-encoded RFC 2104-compliant HMAC signature. By default
-	 *         it is not URL safe.
+	 *            it is not URL safe.
 	 * @throws InvalidKeyException
-	 *             This is the exception for invalid Keys (invalid encoding,
-	 *             wrong length, uninitialized, etc).
+	 *            This is the exception for invalid Keys (invalid encoding,
+	 *            wrong length, uninitialized, etc).
 	 * @see #calculateRFC2104HMACWithEncoding(String, String, boolean)
 	 */
 	public String calculateRFC2104HMAC(final String data, final String key)
@@ -129,10 +130,13 @@ public class Signature {
 			mac.init(signingKey);
 	
 			// Compute the hmac on input data bytes
-			final byte[] rawHmac = mac.doFinal(data.getBytes("UTF-8"));
+			final byte[] rawHmac = mac.doFinal(data.getBytes());
 	
-			// Convert raw bytes to encoding
-			final byte[] base64Bytes = Base64.encodeBase64(rawHmac, false,
+			// Convert raw bytes to Hex
+      byte[] hexBytes = new Hex().encode(rawHmac);
+      
+      // Convert raw bytes to encoding
+			final byte[] base64Bytes = Base64.encodeBase64(hexBytes, false,
 					urlSafe);
 			result = new String(base64Bytes, "UTF-8");
 		} catch (UnsupportedEncodingException e) {

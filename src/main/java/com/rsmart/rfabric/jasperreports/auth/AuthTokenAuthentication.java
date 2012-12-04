@@ -21,8 +21,6 @@
  */
 package com.rsmart.rfabric.jasperreports.auth;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.security.Authentication;
@@ -54,6 +52,7 @@ public class AuthTokenAuthentication implements Authentication{
    * 
    */
   public final boolean isAuthenticated() {
+    LOG.debug("isAuthenticated(): " + (name != null));
     return (name != null);
   }
   
@@ -62,6 +61,7 @@ public class AuthTokenAuthentication implements Authentication{
    * 
    */
   public final String getName() {
+    LOG.debug("getName(): " + name);
     return name;
   }
   
@@ -70,6 +70,7 @@ public class AuthTokenAuthentication implements Authentication{
   }
 
   public GrantedAuthority[] getAuthorities() {
+    LOG.debug("[" + name + "].getAuthorities()");
     return authorities;
   }
   
@@ -78,6 +79,7 @@ public class AuthTokenAuthentication implements Authentication{
   }
 
   public Object getCredentials() {
+    LOG.debug("[" + name + "].getCredentials(): " + authToken);
     return authToken;
   }
 
@@ -86,16 +88,19 @@ public class AuthTokenAuthentication implements Authentication{
   }
 
   public Object getPrincipal() {
+    LOG.debug("getPrincipal(): " + name);
     return getName();
   }
 
 
   public void setAuthenticated(boolean authenticated) throws IllegalArgumentException {
+    LOG.debug("setAuthenticated(" + authenticated + ")");
     if (authenticated) {
       LOG.error ("Illegal attempt to set status to authenticated externally");
       throw new IllegalArgumentException ("Cannot set authenticated to true externally");
     }
     
     name = null;
+    authorities = null;
   }
 }

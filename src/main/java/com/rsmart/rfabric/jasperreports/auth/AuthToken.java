@@ -1,14 +1,26 @@
 package com.rsmart.rfabric.jasperreports.auth;
 
+/**
+ * Represents an authorization token sent in an HTTP request. The token will be composed of
+ * a user name, and a random string (a 'nonce'), and a hash. The 
+ * @author duffy
+ *
+ */
 public class AuthToken {
   
-  public static final String TOKEN_SEPARATOR = ":";
+  public static final String TOKEN_SEPARATOR = ";";
 
   private String token = null;
   private String hash = null;
   private String name = null;
   private String nonce = null;
   
+  /**
+   * Parses a token string of the form [hash];[name];[nonce] into its component parts.
+   * Throws an IllegalArgumentException if the token is malformed.
+   * 
+   * @param token
+   */
   public AuthToken (final String token) {
     if (token == null || token.isEmpty()) {
       throw new IllegalArgumentException ("token is empty");

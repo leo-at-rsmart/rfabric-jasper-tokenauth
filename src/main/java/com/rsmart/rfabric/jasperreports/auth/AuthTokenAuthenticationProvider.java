@@ -6,9 +6,28 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.security.Authentication;
 import org.springframework.security.AuthenticationException;
-import org.springframework.security.GrantedAuthority;
 import org.springframework.security.providers.AuthenticationProvider;
 
+/**
+ * Implements the AuthenticationProvider interface from the Spring Framework Security
+ * specification to enable proxy authentication of a user to JasperReports Server by 
+ * a client service using AuthTokens. This provider will analyze AuthTokenAuthentication 
+ * objects to determine if they contain a valid AuthToken credential. Validation is 
+ * accomplished by generating am HMAC from the name and the nonce contained in the 
+ * AuthToken credential, using a secret key shared with the client service at configuration
+ * time. If the generate HMAC equals the hash contained in the AuthToken the token is
+ * deemed valid.
+ * 
+ * Next an ExternalUserProvider is checked to determine if the user name is recognized.
+ * If so the same ExternalUserProvider is queried for GrantedAuthorities for that user.
+ * GrantedAuthorities are simply role names recognized by the JasperReports Server which
+ * the user fills.
+ * 
+ * 
+ * client service
+ * @author duffy
+ *
+ */
 public class AuthTokenAuthenticationProvider implements AuthenticationProvider {
   private static final Log LOG = LogFactory.getLog(AuthTokenAuthenticationProvider.class);
 
@@ -61,7 +80,7 @@ public class AuthTokenAuthenticationProvider implements AuthenticationProvider {
     try {
       //validate the hash
       final String message = name + AuthToken.TOKEN_SEPARATOR + authToken.getNonce();
-      final String hmac = signature.calculateRFC2104HMAC(message, secret);
+      final String hmac = signature.calculateRFC2104HMACWithEncoding(message, secret, true);
       if (hmac.equals(authToken.getHash())) {
         LOG.debug("token is valid");
         // the user is Ok, we will trust it.
@@ -79,7 +98,12 @@ public class AuthTokenAuthenticationProvider implements AuthenticationProvider {
     return null;
   }
 
+  @SuppressWarnings("rawtypes")
   public boolean supports(Class authTokenClass) {
+    if (LOG.isDebugEnabled()) {
+      LOG.debug("supports(\"" + authTokenClass.getName() + "\") reports: " +
+          AuthTokenAuthentication.class.isAssignableFrom(authTokenClass));      
+    }
     return (AuthTokenAuthentication.class.isAssignableFrom(authTokenClass));
   }
 
