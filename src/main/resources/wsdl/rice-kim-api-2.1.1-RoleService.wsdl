@@ -1,0 +1,2586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="RoleService" targetNamespace="http://rice.kuali.org/kim/v2_0" xmlns:ns1="http://rice.kuali.org/core/v2_0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://rice.kuali.org/kim/v2_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://rice.kuali.org/core/v2_0" xmlns:tns="http://rice.kuali.org/kim/v2_0" elementFormDefault="qualified" targetNamespace="http://rice.kuali.org/kim/v2_0" version="1.0">
+<xs:import namespace="http://rice.kuali.org/core/v2_0"/>
+<xs:element name="assignGroupToRole" type="tns:assignGroupToRole"/>
+<xs:element name="assignGroupToRoleResponse" type="tns:assignGroupToRoleResponse"/>
+<xs:element name="assignPermissionToRole" type="tns:assignPermissionToRole"/>
+<xs:element name="assignPermissionToRoleResponse" type="tns:assignPermissionToRoleResponse"/>
+<xs:element name="assignPrincipalToRole" type="tns:assignPrincipalToRole"/>
+<xs:element name="assignPrincipalToRoleResponse" type="tns:assignPrincipalToRoleResponse"/>
+<xs:element name="assignRoleToRole" type="tns:assignRoleToRole"/>
+<xs:element name="assignRoleToRoleResponse" type="tns:assignRoleToRoleResponse"/>
+<xs:element name="createDelegateMember" type="tns:createDelegateMember"/>
+<xs:element name="createDelegateMemberResponse" type="tns:createDelegateMemberResponse"/>
+<xs:element name="createDelegateType" type="tns:createDelegateType"/>
+<xs:element name="createDelegateTypeResponse" type="tns:createDelegateTypeResponse"/>
+<xs:element name="createRole" type="tns:createRole"/>
+<xs:element name="createRoleMember" type="tns:createRoleMember"/>
+<xs:element name="createRoleMemberResponse" type="tns:createRoleMemberResponse"/>
+<xs:element name="createRoleResponse" type="tns:createRoleResponse"/>
+<xs:element name="createRoleResponsibilityAction" type="tns:createRoleResponsibilityAction"/>
+<xs:element name="createRoleResponsibilityActionResponse" type="tns:createRoleResponsibilityActionResponse"/>
+<xs:element name="delegateMember" type="tns:DelegateMemberType"/>
+<xs:element name="delegateMemberQueryResults" type="tns:DelegateMemberQueryResultsType"/>
+<xs:element name="delegateType" type="tns:DelegateTypeType"/>
+<xs:element name="delegationType" type="tns:DelegationTypeType"/>
+<xs:element name="findDelegateMembers" type="tns:findDelegateMembers"/>
+<xs:element name="findDelegateMembersResponse" type="tns:findDelegateMembersResponse"/>
+<xs:element name="findRoleMembers" type="tns:findRoleMembers"/>
+<xs:element name="findRoleMembersResponse" type="tns:findRoleMembersResponse"/>
+<xs:element name="findRoleMemberships" type="tns:findRoleMemberships"/>
+<xs:element name="findRoleMembershipsResponse" type="tns:findRoleMembershipsResponse"/>
+<xs:element name="getDelegateTypeByDelegationId" type="tns:getDelegateTypeByDelegationId"/>
+<xs:element name="getDelegateTypeByDelegationIdResponse" type="tns:getDelegateTypeByDelegationIdResponse"/>
+<xs:element name="getDelegateTypeByRoleIdAndDelegateTypeCode" type="tns:getDelegateTypeByRoleIdAndDelegateTypeCode"/>
+<xs:element name="getDelegateTypeByRoleIdAndDelegateTypeCodeResponse" type="tns:getDelegateTypeByRoleIdAndDelegateTypeCodeResponse"/>
+<xs:element name="getDelegationMemberByDelegationAndMemberId" type="tns:getDelegationMemberByDelegationAndMemberId"/>
+<xs:element name="getDelegationMemberByDelegationAndMemberIdResponse" type="tns:getDelegationMemberByDelegationAndMemberIdResponse"/>
+<xs:element name="getDelegationMemberById" type="tns:getDelegationMemberById"/>
+<xs:element name="getDelegationMemberByIdResponse" type="tns:getDelegationMemberByIdResponse"/>
+<xs:element name="getDelegationMembersByDelegationId" type="tns:getDelegationMembersByDelegationId"/>
+<xs:element name="getDelegationMembersByDelegationIdResponse" type="tns:getDelegationMembersByDelegationIdResponse"/>
+<xs:element name="getFirstLevelRoleMembers" type="tns:getFirstLevelRoleMembers"/>
+<xs:element name="getFirstLevelRoleMembersResponse" type="tns:getFirstLevelRoleMembersResponse"/>
+<xs:element name="getMemberParentRoleIds" type="tns:getMemberParentRoleIds"/>
+<xs:element name="getMemberParentRoleIdsResponse" type="tns:getMemberParentRoleIdsResponse"/>
+<xs:element name="getNestedRoleQualifersForPrincipalByNamespaceAndRolename" type="tns:getNestedRoleQualifersForPrincipalByNamespaceAndRolename"/>
+<xs:element name="getNestedRoleQualifersForPrincipalByNamespaceAndRolenameResponse" type="tns:getNestedRoleQualifersForPrincipalByNamespaceAndRolenameResponse"/>
+<xs:element name="getNestedRoleQualifiersForPrincipalByRoleIds" type="tns:getNestedRoleQualifiersForPrincipalByRoleIds"/>
+<xs:element name="getNestedRoleQualifiersForPrincipalByRoleIdsResponse" type="tns:getNestedRoleQualifiersForPrincipalByRoleIdsResponse"/>
+<xs:element name="getPrincipalIdSubListWithRole" type="tns:getPrincipalIdSubListWithRole"/>
+<xs:element name="getPrincipalIdSubListWithRoleResponse" type="tns:getPrincipalIdSubListWithRoleResponse"/>
+<xs:element name="getRole" type="tns:getRole"/>
+<xs:element name="getRoleByNamespaceCodeAndName" type="tns:getRoleByNamespaceCodeAndName"/>
+<xs:element name="getRoleByNamespaceCodeAndNameResponse" type="tns:getRoleByNamespaceCodeAndNameResponse"/>
+<xs:element name="getRoleIdByNamespaceCodeAndName" type="tns:getRoleIdByNamespaceCodeAndName"/>
+<xs:element name="getRoleIdByNamespaceCodeAndNameResponse" type="tns:getRoleIdByNamespaceCodeAndNameResponse"/>
+<xs:element name="getRoleMemberPrincipalIds" type="tns:getRoleMemberPrincipalIds"/>
+<xs:element name="getRoleMemberPrincipalIdsResponse" type="tns:getRoleMemberPrincipalIdsResponse"/>
+<xs:element name="getRoleMemberResponsibilityActions" type="tns:getRoleMemberResponsibilityActions"/>
+<xs:element name="getRoleMemberResponsibilityActionsResponse" type="tns:getRoleMemberResponsibilityActionsResponse"/>
+<xs:element name="getRoleMembers" type="tns:getRoleMembers"/>
+<xs:element name="getRoleMembersResponse" type="tns:getRoleMembersResponse"/>
+<xs:element name="getRoleQualifersForPrincipalByNamespaceAndRolename" type="tns:getRoleQualifersForPrincipalByNamespaceAndRolename"/>
+<xs:element name="getRoleQualifersForPrincipalByNamespaceAndRolenameResponse" type="tns:getRoleQualifersForPrincipalByNamespaceAndRolenameResponse"/>
+<xs:element name="getRoleQualifersForPrincipalByRoleIds" type="tns:getRoleQualifersForPrincipalByRoleIds"/>
+<xs:element name="getRoleQualifersForPrincipalByRoleIdsResponse" type="tns:getRoleQualifersForPrincipalByRoleIdsResponse"/>
+<xs:element name="getRoleResponse" type="tns:getRoleResponse"/>
+<xs:element name="getRoleResponsibilities" type="tns:getRoleResponsibilities"/>
+<xs:element name="getRoleResponsibilitiesResponse" type="tns:getRoleResponsibilitiesResponse"/>
+<xs:element name="getRoleTypeRoleMemberIds" type="tns:getRoleTypeRoleMemberIds"/>
+<xs:element name="getRoleTypeRoleMemberIdsResponse" type="tns:getRoleTypeRoleMemberIdsResponse"/>
+<xs:element name="getRoles" type="tns:getRoles"/>
+<xs:element name="getRolesResponse" type="tns:getRolesResponse"/>
+<xs:element name="getRolesSearchResults" type="tns:getRolesSearchResults"/>
+<xs:element name="getRolesSearchResultsResponse" type="tns:getRolesSearchResultsResponse"/>
+<xs:element name="isDerivedRole" type="tns:isDerivedRole"/>
+<xs:element name="isDerivedRoleResponse" type="tns:isDerivedRoleResponse"/>
+<xs:element name="isDynamicRoleMembership" type="tns:isDynamicRoleMembership"/>
+<xs:element name="isDynamicRoleMembershipResponse" type="tns:isDynamicRoleMembershipResponse"/>
+<xs:element name="isRoleActive" type="tns:isRoleActive"/>
+<xs:element name="isRoleActiveResponse" type="tns:isRoleActiveResponse"/>
+<xs:element name="principalHasRole" type="tns:principalHasRole"/>
+<xs:element name="principalHasRoleCheckDelegation" type="tns:principalHasRoleCheckDelegation"/>
+<xs:element name="principalHasRoleCheckDelegationResponse" type="tns:principalHasRoleCheckDelegationResponse"/>
+<xs:element name="principalHasRoleResponse" type="tns:principalHasRoleResponse"/>
+<xs:element name="removeDelegateMembers" type="tns:removeDelegateMembers"/>
+<xs:element name="removeDelegateMembersResponse" type="tns:removeDelegateMembersResponse"/>
+<xs:element name="removeGroupFromRole" type="tns:removeGroupFromRole"/>
+<xs:element name="removeGroupFromRoleResponse" type="tns:removeGroupFromRoleResponse"/>
+<xs:element name="removePrincipalFromRole" type="tns:removePrincipalFromRole"/>
+<xs:element name="removePrincipalFromRoleResponse" type="tns:removePrincipalFromRoleResponse"/>
+<xs:element name="removeRoleFromRole" type="tns:removeRoleFromRole"/>
+<xs:element name="removeRoleFromRoleResponse" type="tns:removeRoleFromRoleResponse"/>
+<xs:element name="revokePermissionFromRole" type="tns:revokePermissionFromRole"/>
+<xs:element name="revokePermissionFromRoleResponse" type="tns:revokePermissionFromRoleResponse"/>
+<xs:element name="role" type="tns:RoleType"/>
+<xs:element name="roleMember" type="tns:RoleMemberType"/>
+<xs:element name="roleMemberQueryResults" type="tns:RoleMemberQueryResultsType"/>
+<xs:element name="roleMembership" type="tns:RoleMembershipType"/>
+<xs:element name="roleMembershipQueryResults" type="tns:RoleMembershipQueryResultsType"/>
+<xs:element name="roleQueryResults" type="tns:RoleQueryResultsType"/>
+<xs:element name="roleResponsibility" type="tns:RoleResponsibilityType"/>
+<xs:element name="roleResponsibilityAction" type="tns:RoleResponsibilityActionType"/>
+<xs:element name="updateDelegateMember" type="tns:updateDelegateMember"/>
+<xs:element name="updateDelegateMemberResponse" type="tns:updateDelegateMemberResponse"/>
+<xs:element name="updateDelegateType" type="tns:updateDelegateType"/>
+<xs:element name="updateDelegateTypeResponse" type="tns:updateDelegateTypeResponse"/>
+<xs:element name="updateRole" type="tns:updateRole"/>
+<xs:element name="updateRoleMember" type="tns:updateRoleMember"/>
+<xs:element name="updateRoleMemberResponse" type="tns:updateRoleMemberResponse"/>
+<xs:element name="updateRoleResponse" type="tns:updateRoleResponse"/>
+<xs:complexType name="createDelegateType">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:delegateType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="DelegateTypeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+      <xs:element minOccurs="0" name="delegationId" type="xs:string"/>
+      <xs:element minOccurs="0" name="delegationTypeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="kimTypeId" type="xs:string"/>
+      <xs:element minOccurs="0" name="members">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="member" type="tns:DelegateMemberType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="DelegateMemberType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="delegationMemberId" type="xs:string"/>
+      <xs:element minOccurs="0" name="delegationId" type="xs:string"/>
+      <xs:element minOccurs="0" name="memberId" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleMemberId" type="xs:string"/>
+      <xs:element minOccurs="0" name="typeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="attributes" type="ns1:StringMapEntryListType"/>
+      <xs:element minOccurs="0" name="activeFromDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="activeToDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createDelegateTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:DelegateTypeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleResponsibilities">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleResponsibilitiesResponse">
+    <xs:sequence>
+      <xs:element name="roleResponsibilities">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:roleResponsibility"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="RoleResponsibilityType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="roleResponsibilityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+      <xs:element minOccurs="0" name="responsibilityId" type="xs:string"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="removeDelegateMembers">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="delegateMembers" type="tns:DelegateMemberType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="removeDelegateMembersResponse">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getRoleMemberResponsibilityActions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="roleMemberId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleMemberResponsibilityActionsResponse">
+    <xs:sequence>
+      <xs:element name="roleResponsibilityActions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:roleResponsibilityAction"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="RoleResponsibilityActionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleResponsibilityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleMemberId" type="xs:string"/>
+      <xs:element minOccurs="0" name="actionTypeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="actionPolicyCode" type="xs:string"/>
+      <xs:element name="forceAction" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="priorityNumber" type="xs:int"/>
+      <xs:element minOccurs="0" ref="tns:roleResponsibility"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDelegateTypeByDelegationId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="delegationId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDelegateTypeByDelegationIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:delegateType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findDelegateMembers">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="query" type="ns1:QueryByCriteriaType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findDelegateMembersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results" type="tns:DelegateMemberQueryResultsType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="DelegateMemberQueryResultsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:delegateMember"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="totalRowCount" type="xs:int"/>
+      <xs:element name="moreResultsAvailable" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="removePrincipalFromRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleName" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualifications" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="removePrincipalFromRoleResponse">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="createRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:role"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="RoleType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element name="kimTypeId" type="xs:string"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createRoleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:role"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateDelegateMember">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:delegateMember"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateDelegateMemberResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:delegateMember"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleQualifersForPrincipalByNamespaceAndRolename">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleName" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleQualifersForPrincipalByNamespaceAndRolenameResponse">
+    <xs:sequence>
+      <xs:element name="attributes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="ns1:StringMapEntryListType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createRoleMember">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:roleMember"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="RoleMemberType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element name="roleId" type="xs:string"/>
+      <xs:element minOccurs="0" name="attributes" type="ns1:StringMapEntryListType"/>
+      <xs:element minOccurs="0" name="roleResponsibilityActions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:roleResponsibilityAction"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="memberId" type="xs:string"/>
+      <xs:element name="typeCode" type="xs:string"/>
+      <xs:element name="memberName" type="xs:string"/>
+      <xs:element name="memberNamespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="activeFromDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="activeToDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createRoleMemberResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:roleMember"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="assignPermissionToRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="permissionId" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="assignPermissionToRoleResponse">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="findRoleMembers">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="query" type="ns1:QueryByCriteriaType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findRoleMembersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results" type="tns:RoleMemberQueryResultsType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="RoleMemberQueryResultsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:roleMember"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="totalRowCount" type="xs:int"/>
+      <xs:element name="moreResultsAvailable" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDelegationMemberByDelegationAndMemberId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="delegationId" type="xs:string"/>
+      <xs:element minOccurs="0" name="memberId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDelegationMemberByDelegationAndMemberIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:delegateMember"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:role"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateRoleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:role"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="revokePermissionFromRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="permissionId" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="revokePermissionFromRoleResponse">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="isDynamicRoleMembership">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="isDynamicRoleMembershipResponse">
+    <xs:sequence>
+      <xs:element name="isDynamicRoleMembership" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getNestedRoleQualifiersForPrincipalByRoleIds">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="roleIds" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getNestedRoleQualifiersForPrincipalByRoleIdsResponse">
+    <xs:sequence>
+      <xs:element name="attributes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="ns1:StringMapEntryListType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDelegationMembersByDelegationId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="delegateId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDelegationMembersByDelegationIdResponse">
+    <xs:sequence>
+      <xs:element name="delegateMembers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:delegateMember"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleIdByNamespaceCodeAndName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleIdByNamespaceCodeAndNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="principalHasRoleCheckDelegation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="roleIds" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+      <xs:element name="arg3" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="principalHasRoleCheckDelegationResponse">
+    <xs:sequence>
+      <xs:element name="principalHasRoleCheckDelegation" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleQualifersForPrincipalByRoleIds">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="roleIds" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleQualifersForPrincipalByRoleIdsResponse">
+    <xs:sequence>
+      <xs:element name="attributes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="ns1:StringMapEntryListType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="assignGroupToRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="groupId" type="xs:string"/>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleName" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualifications" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="assignGroupToRoleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:roleMember"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPrincipalIdSubListWithRole">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="principalIds" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleNamespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleName" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPrincipalIdSubListWithRoleResponse">
+    <xs:sequence>
+      <xs:element name="principalIds">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="principalId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleByNamespaceCodeAndName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleByNamespaceCodeAndNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:role"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateDelegateType">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:delegateType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateDelegateTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:DelegateTypeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="principalHasRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="roleIds" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="principalHasRoleResponse">
+    <xs:sequence>
+      <xs:element name="principalHasRole" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleTypeRoleMemberIds">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleTypeRoleMemberIdsResponse">
+    <xs:sequence>
+      <xs:element name="memberIds">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="memberId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDelegateTypeByRoleIdAndDelegateTypeCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+      <xs:element minOccurs="0" name="delegateType" type="tns:DelegationTypeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDelegateTypeByRoleIdAndDelegateTypeCodeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:delegateType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="isRoleActive">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="isRoleActiveResponse">
+    <xs:sequence>
+      <xs:element name="isRoleActive" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="removeGroupFromRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="groupId" type="xs:string"/>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleName" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualifications" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="removeGroupFromRoleResponse">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getMemberParentRoleIds">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getMemberParentRoleIdsResponse">
+    <xs:sequence>
+      <xs:element name="roleIds">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="roleId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRolesSearchResults">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="query" type="ns1:QueryByCriteriaType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRolesSearchResultsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results" type="tns:RoleQueryResultsType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="RoleQueryResultsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:role"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="totalRowCount" type="xs:int"/>
+      <xs:element name="moreResultsAvailable" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleMembers">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="roleIds" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleMembersResponse">
+    <xs:sequence>
+      <xs:element name="roleMemberships">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:roleMembership"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="RoleMembershipType">
+    <xs:sequence>
+      <xs:element name="roleId" type="xs:string"/>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="embeddedRoleId" type="xs:string"/>
+      <xs:element name="memberId" type="xs:string"/>
+      <xs:element name="typeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleSortingCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualifier" type="ns1:StringMapEntryListType"/>
+      <xs:element minOccurs="0" name="delegates">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="delegate" type="tns:DelegateTypeType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateRoleMember">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:roleMember"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateRoleMemberResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:roleMember"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="removeRoleFromRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleName" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualifications" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="removeRoleFromRoleResponse">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:role"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getNestedRoleQualifersForPrincipalByNamespaceAndRolename">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleName" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getNestedRoleQualifersForPrincipalByNamespaceAndRolenameResponse">
+    <xs:sequence>
+      <xs:element name="attributes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="ns1:StringMapEntryListType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoles">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="ids" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRolesResponse">
+    <xs:sequence>
+      <xs:element name="roles">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:role"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDelegationMemberById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDelegationMemberByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:delegateMember"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createRoleResponsibilityAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:roleResponsibilityAction"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createRoleResponsibilityActionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:RoleResponsibilityActionType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="isDerivedRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="isDerivedRoleResponse">
+    <xs:sequence>
+      <xs:element name="isDerivedRole" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createDelegateMember">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:delegateMember"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createDelegateMemberResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:delegateMember"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleMemberPrincipalIds">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleName" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleMemberPrincipalIdsResponse">
+    <xs:sequence>
+      <xs:element name="principalIds">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="principalId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getFirstLevelRoleMembers">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="roleIds" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getFirstLevelRoleMembersResponse">
+    <xs:sequence>
+      <xs:element name="roleMemberships">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:roleMembership"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="assignRoleToRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleName" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualifications" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="assignRoleToRoleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:roleMember"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="assignPrincipalToRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleName" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualifications" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="assignPrincipalToRoleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:roleMember"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findRoleMemberships">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="query" type="ns1:QueryByCriteriaType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findRoleMembershipsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results" type="tns:RoleMembershipQueryResultsType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="RoleMembershipQueryResultsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:roleMembership"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="totalRowCount" type="xs:int"/>
+      <xs:element name="moreResultsAvailable" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:simpleType name="DelegationTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="P"/>
+      <xs:enumeration value="S"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://rice.kuali.org/core/v2_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://rice.kuali.org/core/v2_0">
+  <xs:element name="and" type="tns:AndType"/>
+  <xs:element name="dateTimeValue" type="tns:CriteriaDateTimeValueType"/>
+  <xs:element name="decimalValue" type="tns:CriteriaDecimalValueType"/>
+  <xs:element name="equal" type="tns:EqualType"/>
+  <xs:element name="greaterThan" type="tns:GreaterThanType"/>
+  <xs:element name="greaterThanOrEqual" type="tns:GreaterThanOrEqualType"/>
+  <xs:element name="in" type="tns:InType"/>
+  <xs:element name="integerValue" type="tns:CriteriaIntegerValueType"/>
+  <xs:element name="lessThan" type="tns:LessThanType"/>
+  <xs:element name="lessThanOrEqual" type="tns:LessThanOrEqualType"/>
+  <xs:element name="like" type="tns:LikeType"/>
+  <xs:element name="notEqual" type="tns:NotEqualType"/>
+  <xs:element name="notIn" type="tns:NotInType"/>
+  <xs:element name="notLike" type="tns:NotLikeType"/>
+  <xs:element name="notNull" type="tns:NotNullType"/>
+  <xs:element name="null" type="tns:NullType"/>
+  <xs:element name="or" type="tns:OrType"/>
+  <xs:element name="queryByCriteria" type="tns:QueryByCriteriaType"/>
+  <xs:element name="stringValue" type="tns:CriteriaStringValueType"/>
+  <xs:complexType name="StringMapEntryListType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="entry" type="tns:StringMapEntryType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="StringMapEntryType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="key" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="QueryByCriteriaType">
+    <xs:sequence>
+      <xs:choice minOccurs="0">
+        <xs:element ref="tns:and"/>
+        <xs:element ref="tns:equal"/>
+        <xs:element ref="tns:greaterThan"/>
+        <xs:element ref="tns:greaterThanOrEqual"/>
+        <xs:element ref="tns:in"/>
+        <xs:element ref="tns:lessThan"/>
+        <xs:element ref="tns:lessThanOrEqual"/>
+        <xs:element ref="tns:like"/>
+        <xs:element ref="tns:notEqual"/>
+        <xs:element ref="tns:notIn"/>
+        <xs:element ref="tns:notLike"/>
+        <xs:element ref="tns:notNull"/>
+        <xs:element ref="tns:null"/>
+        <xs:element ref="tns:or"/>
+      </xs:choice>
+      <xs:element minOccurs="0" name="startAtIndex" type="xs:int"/>
+      <xs:element minOccurs="0" name="maxResults" type="xs:int"/>
+      <xs:element name="countFlag" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="AndType">
+    <xs:complexContent>
+      <xs:extension base="tns:CompositePredicateType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="CompositePredicateType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded">
+            <xs:element ref="tns:and"/>
+            <xs:element ref="tns:equal"/>
+            <xs:element ref="tns:greaterThan"/>
+            <xs:element ref="tns:greaterThanOrEqual"/>
+            <xs:element ref="tns:in"/>
+            <xs:element ref="tns:lessThan"/>
+            <xs:element ref="tns:lessThanOrEqual"/>
+            <xs:element ref="tns:like"/>
+            <xs:element ref="tns:notEqual"/>
+            <xs:element ref="tns:notIn"/>
+            <xs:element ref="tns:notLike"/>
+            <xs:element ref="tns:notNull"/>
+            <xs:element ref="tns:null"/>
+            <xs:element ref="tns:or"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractPredicate">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="EqualType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="CriteriaStringValueType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="CriteriaDateTimeValueType">
+    <xs:restriction base="xs:dateTime"/>
+  </xs:simpleType>
+  <xs:simpleType name="CriteriaDecimalValueType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="CriteriaIntegerValueType">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+  <xs:complexType final="extension restriction" name="GreaterThanType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="GreaterThanOrEqualType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="InType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded">
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:decimalValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="LessThanType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="LessThanOrEqualType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="LikeType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:element ref="tns:stringValue"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NotEqualType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NotInType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded">
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:decimalValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NotLikeType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:element ref="tns:stringValue"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NotNullType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NullType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="OrType">
+    <xs:complexContent>
+      <xs:extension base="tns:CompositePredicateType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IllegalArgumentFault" type="tns:IllegalArgumentFault"/>
+  <xs:complexType name="IllegalArgumentFault">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:element name="IllegalStateFault" type="tns:IllegalStateFault"/>
+  <xs:complexType name="IllegalStateFault">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="createRoleResponsibilityActionResponse">
+    <wsdl:part name="parameters" element="tns:createRoleResponsibilityActionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleMemberPrincipalIds">
+    <wsdl:part name="parameters" element="tns:getRoleMemberPrincipalIds">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleTypeRoleMemberIds">
+    <wsdl:part name="parameters" element="tns:getRoleTypeRoleMemberIds">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleByNamespaceCodeAndNameResponse">
+    <wsdl:part name="parameters" element="tns:getRoleByNamespaceCodeAndNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRole">
+    <wsdl:part name="parameters" element="tns:getRole">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="principalHasRole">
+    <wsdl:part name="parameters" element="tns:principalHasRole">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNestedRoleQualifiersForPrincipalByRoleIds">
+    <wsdl:part name="parameters" element="tns:getNestedRoleQualifiersForPrincipalByRoleIds">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignRoleToRoleResponse">
+    <wsdl:part name="parameters" element="tns:assignRoleToRoleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateDelegateType">
+    <wsdl:part name="parameters" element="tns:updateDelegateType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMemberParentRoleIds">
+    <wsdl:part name="parameters" element="tns:getMemberParentRoleIds">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRolesSearchResults">
+    <wsdl:part name="parameters" element="tns:getRolesSearchResults">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignPermissionToRoleResponse">
+    <wsdl:part name="parameters" element="tns:assignPermissionToRoleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleQualifersForPrincipalByNamespaceAndRolenameResponse">
+    <wsdl:part name="parameters" element="tns:getRoleQualifersForPrincipalByNamespaceAndRolenameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateDelegateMember">
+    <wsdl:part name="parameters" element="tns:updateDelegateMember">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleMemberPrincipalIdsResponse">
+    <wsdl:part name="parameters" element="tns:getRoleMemberPrincipalIdsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createDelegateMember">
+    <wsdl:part name="parameters" element="tns:createDelegateMember">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isDynamicRoleMembershipResponse">
+    <wsdl:part name="parameters" element="tns:isDynamicRoleMembershipResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDelegateTypeByRoleIdAndDelegateTypeCode">
+    <wsdl:part name="parameters" element="tns:getDelegateTypeByRoleIdAndDelegateTypeCode">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createRoleResponse">
+    <wsdl:part name="parameters" element="tns:createRoleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createDelegateMemberResponse">
+    <wsdl:part name="parameters" element="tns:createDelegateMemberResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateRoleMemberResponse">
+    <wsdl:part name="parameters" element="tns:updateRoleMemberResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDelegateTypeByDelegationId">
+    <wsdl:part name="parameters" element="tns:getDelegateTypeByDelegationId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findDelegateMembers">
+    <wsdl:part name="parameters" element="tns:findDelegateMembers">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMemberParentRoleIdsResponse">
+    <wsdl:part name="parameters" element="tns:getMemberParentRoleIdsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleQualifersForPrincipalByNamespaceAndRolename">
+    <wsdl:part name="parameters" element="tns:getRoleQualifersForPrincipalByNamespaceAndRolename">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNestedRoleQualifiersForPrincipalByRoleIdsResponse">
+    <wsdl:part name="parameters" element="tns:getNestedRoleQualifiersForPrincipalByRoleIdsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFirstLevelRoleMembersResponse">
+    <wsdl:part name="parameters" element="tns:getFirstLevelRoleMembersResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeDelegateMembers">
+    <wsdl:part name="parameters" element="tns:removeDelegateMembers">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleIdByNamespaceCodeAndName">
+    <wsdl:part name="parameters" element="tns:getRoleIdByNamespaceCodeAndName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrincipalIdSubListWithRole">
+    <wsdl:part name="parameters" element="tns:getPrincipalIdSubListWithRole">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isDerivedRole">
+    <wsdl:part name="parameters" element="tns:isDerivedRole">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findRoleMembershipsResponse">
+    <wsdl:part name="parameters" element="tns:findRoleMembershipsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDelegateTypeByDelegationIdResponse">
+    <wsdl:part name="parameters" element="tns:getDelegateTypeByDelegationIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="principalHasRoleCheckDelegationResponse">
+    <wsdl:part name="parameters" element="tns:principalHasRoleCheckDelegationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateRoleResponse">
+    <wsdl:part name="parameters" element="tns:updateRoleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNestedRoleQualifersForPrincipalByNamespaceAndRolenameResponse">
+    <wsdl:part name="parameters" element="tns:getNestedRoleQualifersForPrincipalByNamespaceAndRolenameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removePrincipalFromRoleResponse">
+    <wsdl:part name="parameters" element="tns:removePrincipalFromRoleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDelegationMembersByDelegationIdResponse">
+    <wsdl:part name="parameters" element="tns:getDelegationMembersByDelegationIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRolesResponse">
+    <wsdl:part name="parameters" element="tns:getRolesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleMemberResponsibilityActions">
+    <wsdl:part name="parameters" element="tns:getRoleMemberResponsibilityActions">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateRoleMember">
+    <wsdl:part name="parameters" element="tns:updateRoleMember">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNestedRoleQualifersForPrincipalByNamespaceAndRolename">
+    <wsdl:part name="parameters" element="tns:getNestedRoleQualifersForPrincipalByNamespaceAndRolename">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoles">
+    <wsdl:part name="parameters" element="tns:getRoles">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findRoleMembersResponse">
+    <wsdl:part name="parameters" element="tns:findRoleMembersResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleResponsibilitiesResponse">
+    <wsdl:part name="parameters" element="tns:getRoleResponsibilitiesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleMembers">
+    <wsdl:part name="parameters" element="tns:getRoleMembers">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createRole">
+    <wsdl:part name="parameters" element="tns:createRole">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignPermissionToRole">
+    <wsdl:part name="parameters" element="tns:assignPermissionToRole">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleTypeRoleMemberIdsResponse">
+    <wsdl:part name="parameters" element="tns:getRoleTypeRoleMemberIdsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDelegationMemberByDelegationAndMemberIdResponse">
+    <wsdl:part name="parameters" element="tns:getDelegationMemberByDelegationAndMemberIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleMembersResponse">
+    <wsdl:part name="parameters" element="tns:getRoleMembersResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createDelegateTypeResponse">
+    <wsdl:part name="parameters" element="tns:createDelegateTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeDelegateMembersResponse">
+    <wsdl:part name="parameters" element="tns:removeDelegateMembersResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeRoleFromRoleResponse">
+    <wsdl:part name="parameters" element="tns:removeRoleFromRoleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createDelegateType">
+    <wsdl:part name="parameters" element="tns:createDelegateType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isRoleActive">
+    <wsdl:part name="parameters" element="tns:isRoleActive">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleResponse">
+    <wsdl:part name="parameters" element="tns:getRoleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDelegationMemberById">
+    <wsdl:part name="parameters" element="tns:getDelegationMemberById">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignGroupToRole">
+    <wsdl:part name="parameters" element="tns:assignGroupToRole">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDelegateTypeByRoleIdAndDelegateTypeCodeResponse">
+    <wsdl:part name="parameters" element="tns:getDelegateTypeByRoleIdAndDelegateTypeCodeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignGroupToRoleResponse">
+    <wsdl:part name="parameters" element="tns:assignGroupToRoleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleResponsibilities">
+    <wsdl:part name="parameters" element="tns:getRoleResponsibilities">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeGroupFromRole">
+    <wsdl:part name="parameters" element="tns:removeGroupFromRole">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignPrincipalToRoleResponse">
+    <wsdl:part name="parameters" element="tns:assignPrincipalToRoleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="revokePermissionFromRoleResponse">
+    <wsdl:part name="parameters" element="tns:revokePermissionFromRoleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFirstLevelRoleMembers">
+    <wsdl:part name="parameters" element="tns:getFirstLevelRoleMembers">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findRoleMembers">
+    <wsdl:part name="parameters" element="tns:findRoleMembers">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RiceIllegalArgumentException">
+    <wsdl:part name="RiceIllegalArgumentException" element="ns1:IllegalArgumentFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createRoleMember">
+    <wsdl:part name="parameters" element="tns:createRoleMember">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateDelegateTypeResponse">
+    <wsdl:part name="parameters" element="tns:updateDelegateTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="principalHasRoleCheckDelegation">
+    <wsdl:part name="parameters" element="tns:principalHasRoleCheckDelegation">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeGroupFromRoleResponse">
+    <wsdl:part name="parameters" element="tns:removeGroupFromRoleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isDynamicRoleMembership">
+    <wsdl:part name="parameters" element="tns:isDynamicRoleMembership">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignPrincipalToRole">
+    <wsdl:part name="parameters" element="tns:assignPrincipalToRole">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleByNamespaceCodeAndName">
+    <wsdl:part name="parameters" element="tns:getRoleByNamespaceCodeAndName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignRoleToRole">
+    <wsdl:part name="parameters" element="tns:assignRoleToRole">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleQualifersForPrincipalByRoleIds">
+    <wsdl:part name="parameters" element="tns:getRoleQualifersForPrincipalByRoleIds">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findRoleMemberships">
+    <wsdl:part name="parameters" element="tns:findRoleMemberships">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDelegationMembersByDelegationId">
+    <wsdl:part name="parameters" element="tns:getDelegationMembersByDelegationId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleIdByNamespaceCodeAndNameResponse">
+    <wsdl:part name="parameters" element="tns:getRoleIdByNamespaceCodeAndNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RiceIllegalStateException">
+    <wsdl:part name="RiceIllegalStateException" element="ns1:IllegalStateFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRolesSearchResultsResponse">
+    <wsdl:part name="parameters" element="tns:getRolesSearchResultsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeRoleFromRole">
+    <wsdl:part name="parameters" element="tns:removeRoleFromRole">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateDelegateMemberResponse">
+    <wsdl:part name="parameters" element="tns:updateDelegateMemberResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isRoleActiveResponse">
+    <wsdl:part name="parameters" element="tns:isRoleActiveResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="principalHasRoleResponse">
+    <wsdl:part name="parameters" element="tns:principalHasRoleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleQualifersForPrincipalByRoleIdsResponse">
+    <wsdl:part name="parameters" element="tns:getRoleQualifersForPrincipalByRoleIdsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDelegationMemberByIdResponse">
+    <wsdl:part name="parameters" element="tns:getDelegationMemberByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findDelegateMembersResponse">
+    <wsdl:part name="parameters" element="tns:findDelegateMembersResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDelegationMemberByDelegationAndMemberId">
+    <wsdl:part name="parameters" element="tns:getDelegationMemberByDelegationAndMemberId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleMemberResponsibilityActionsResponse">
+    <wsdl:part name="parameters" element="tns:getRoleMemberResponsibilityActionsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createRoleResponsibilityAction">
+    <wsdl:part name="parameters" element="tns:createRoleResponsibilityAction">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="revokePermissionFromRole">
+    <wsdl:part name="parameters" element="tns:revokePermissionFromRole">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateRole">
+    <wsdl:part name="parameters" element="tns:updateRole">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrincipalIdSubListWithRoleResponse">
+    <wsdl:part name="parameters" element="tns:getPrincipalIdSubListWithRoleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removePrincipalFromRole">
+    <wsdl:part name="parameters" element="tns:removePrincipalFromRole">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createRoleMemberResponse">
+    <wsdl:part name="parameters" element="tns:createRoleMemberResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isDerivedRoleResponse">
+    <wsdl:part name="parameters" element="tns:isDerivedRoleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="roleService">
+    <wsdl:operation name="createDelegateType">
+      <wsdl:input name="createDelegateType" message="tns:createDelegateType">
+    </wsdl:input>
+      <wsdl:output name="createDelegateTypeResponse" message="tns:createDelegateTypeResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleResponsibilities">
+      <wsdl:input name="getRoleResponsibilities" message="tns:getRoleResponsibilities">
+    </wsdl:input>
+      <wsdl:output name="getRoleResponsibilitiesResponse" message="tns:getRoleResponsibilitiesResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeDelegateMembers">
+      <wsdl:input name="removeDelegateMembers" message="tns:removeDelegateMembers">
+    </wsdl:input>
+      <wsdl:output name="removeDelegateMembersResponse" message="tns:removeDelegateMembersResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleMemberResponsibilityActions">
+      <wsdl:input name="getRoleMemberResponsibilityActions" message="tns:getRoleMemberResponsibilityActions">
+    </wsdl:input>
+      <wsdl:output name="getRoleMemberResponsibilityActionsResponse" message="tns:getRoleMemberResponsibilityActionsResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDelegateTypeByDelegationId">
+      <wsdl:input name="getDelegateTypeByDelegationId" message="tns:getDelegateTypeByDelegationId">
+    </wsdl:input>
+      <wsdl:output name="getDelegateTypeByDelegationIdResponse" message="tns:getDelegateTypeByDelegationIdResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findDelegateMembers">
+      <wsdl:input name="findDelegateMembers" message="tns:findDelegateMembers">
+    </wsdl:input>
+      <wsdl:output name="findDelegateMembersResponse" message="tns:findDelegateMembersResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removePrincipalFromRole">
+      <wsdl:input name="removePrincipalFromRole" message="tns:removePrincipalFromRole">
+    </wsdl:input>
+      <wsdl:output name="removePrincipalFromRoleResponse" message="tns:removePrincipalFromRoleResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createRole">
+      <wsdl:input name="createRole" message="tns:createRole">
+    </wsdl:input>
+      <wsdl:output name="createRoleResponse" message="tns:createRoleResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateDelegateMember">
+      <wsdl:input name="updateDelegateMember" message="tns:updateDelegateMember">
+    </wsdl:input>
+      <wsdl:output name="updateDelegateMemberResponse" message="tns:updateDelegateMemberResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleQualifersForPrincipalByNamespaceAndRolename">
+      <wsdl:input name="getRoleQualifersForPrincipalByNamespaceAndRolename" message="tns:getRoleQualifersForPrincipalByNamespaceAndRolename">
+    </wsdl:input>
+      <wsdl:output name="getRoleQualifersForPrincipalByNamespaceAndRolenameResponse" message="tns:getRoleQualifersForPrincipalByNamespaceAndRolenameResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createRoleMember">
+      <wsdl:input name="createRoleMember" message="tns:createRoleMember">
+    </wsdl:input>
+      <wsdl:output name="createRoleMemberResponse" message="tns:createRoleMemberResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="assignPermissionToRole">
+      <wsdl:input name="assignPermissionToRole" message="tns:assignPermissionToRole">
+    </wsdl:input>
+      <wsdl:output name="assignPermissionToRoleResponse" message="tns:assignPermissionToRoleResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findRoleMembers">
+      <wsdl:input name="findRoleMembers" message="tns:findRoleMembers">
+    </wsdl:input>
+      <wsdl:output name="findRoleMembersResponse" message="tns:findRoleMembersResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDelegationMemberByDelegationAndMemberId">
+      <wsdl:input name="getDelegationMemberByDelegationAndMemberId" message="tns:getDelegationMemberByDelegationAndMemberId">
+    </wsdl:input>
+      <wsdl:output name="getDelegationMemberByDelegationAndMemberIdResponse" message="tns:getDelegationMemberByDelegationAndMemberIdResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateRole">
+      <wsdl:input name="updateRole" message="tns:updateRole">
+    </wsdl:input>
+      <wsdl:output name="updateRoleResponse" message="tns:updateRoleResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="revokePermissionFromRole">
+      <wsdl:input name="revokePermissionFromRole" message="tns:revokePermissionFromRole">
+    </wsdl:input>
+      <wsdl:output name="revokePermissionFromRoleResponse" message="tns:revokePermissionFromRoleResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isDynamicRoleMembership">
+      <wsdl:input name="isDynamicRoleMembership" message="tns:isDynamicRoleMembership">
+    </wsdl:input>
+      <wsdl:output name="isDynamicRoleMembershipResponse" message="tns:isDynamicRoleMembershipResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getNestedRoleQualifiersForPrincipalByRoleIds">
+      <wsdl:input name="getNestedRoleQualifiersForPrincipalByRoleIds" message="tns:getNestedRoleQualifiersForPrincipalByRoleIds">
+    </wsdl:input>
+      <wsdl:output name="getNestedRoleQualifiersForPrincipalByRoleIdsResponse" message="tns:getNestedRoleQualifiersForPrincipalByRoleIdsResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDelegationMembersByDelegationId">
+      <wsdl:input name="getDelegationMembersByDelegationId" message="tns:getDelegationMembersByDelegationId">
+    </wsdl:input>
+      <wsdl:output name="getDelegationMembersByDelegationIdResponse" message="tns:getDelegationMembersByDelegationIdResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleIdByNamespaceCodeAndName">
+      <wsdl:input name="getRoleIdByNamespaceCodeAndName" message="tns:getRoleIdByNamespaceCodeAndName">
+    </wsdl:input>
+      <wsdl:output name="getRoleIdByNamespaceCodeAndNameResponse" message="tns:getRoleIdByNamespaceCodeAndNameResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="principalHasRoleCheckDelegation">
+      <wsdl:input name="principalHasRoleCheckDelegation" message="tns:principalHasRoleCheckDelegation">
+    </wsdl:input>
+      <wsdl:output name="principalHasRoleCheckDelegationResponse" message="tns:principalHasRoleCheckDelegationResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleQualifersForPrincipalByRoleIds">
+      <wsdl:input name="getRoleQualifersForPrincipalByRoleIds" message="tns:getRoleQualifersForPrincipalByRoleIds">
+    </wsdl:input>
+      <wsdl:output name="getRoleQualifersForPrincipalByRoleIdsResponse" message="tns:getRoleQualifersForPrincipalByRoleIdsResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="assignGroupToRole">
+      <wsdl:input name="assignGroupToRole" message="tns:assignGroupToRole">
+    </wsdl:input>
+      <wsdl:output name="assignGroupToRoleResponse" message="tns:assignGroupToRoleResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPrincipalIdSubListWithRole">
+      <wsdl:input name="getPrincipalIdSubListWithRole" message="tns:getPrincipalIdSubListWithRole">
+    </wsdl:input>
+      <wsdl:output name="getPrincipalIdSubListWithRoleResponse" message="tns:getPrincipalIdSubListWithRoleResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleByNamespaceCodeAndName">
+      <wsdl:input name="getRoleByNamespaceCodeAndName" message="tns:getRoleByNamespaceCodeAndName">
+    </wsdl:input>
+      <wsdl:output name="getRoleByNamespaceCodeAndNameResponse" message="tns:getRoleByNamespaceCodeAndNameResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateDelegateType">
+      <wsdl:input name="updateDelegateType" message="tns:updateDelegateType">
+    </wsdl:input>
+      <wsdl:output name="updateDelegateTypeResponse" message="tns:updateDelegateTypeResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="principalHasRole">
+      <wsdl:input name="principalHasRole" message="tns:principalHasRole">
+    </wsdl:input>
+      <wsdl:output name="principalHasRoleResponse" message="tns:principalHasRoleResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleTypeRoleMemberIds">
+      <wsdl:input name="getRoleTypeRoleMemberIds" message="tns:getRoleTypeRoleMemberIds">
+    </wsdl:input>
+      <wsdl:output name="getRoleTypeRoleMemberIdsResponse" message="tns:getRoleTypeRoleMemberIdsResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDelegateTypeByRoleIdAndDelegateTypeCode">
+      <wsdl:input name="getDelegateTypeByRoleIdAndDelegateTypeCode" message="tns:getDelegateTypeByRoleIdAndDelegateTypeCode">
+    </wsdl:input>
+      <wsdl:output name="getDelegateTypeByRoleIdAndDelegateTypeCodeResponse" message="tns:getDelegateTypeByRoleIdAndDelegateTypeCodeResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isRoleActive">
+      <wsdl:input name="isRoleActive" message="tns:isRoleActive">
+    </wsdl:input>
+      <wsdl:output name="isRoleActiveResponse" message="tns:isRoleActiveResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeGroupFromRole">
+      <wsdl:input name="removeGroupFromRole" message="tns:removeGroupFromRole">
+    </wsdl:input>
+      <wsdl:output name="removeGroupFromRoleResponse" message="tns:removeGroupFromRoleResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberParentRoleIds">
+      <wsdl:input name="getMemberParentRoleIds" message="tns:getMemberParentRoleIds">
+    </wsdl:input>
+      <wsdl:output name="getMemberParentRoleIdsResponse" message="tns:getMemberParentRoleIdsResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRolesSearchResults">
+      <wsdl:input name="getRolesSearchResults" message="tns:getRolesSearchResults">
+    </wsdl:input>
+      <wsdl:output name="getRolesSearchResultsResponse" message="tns:getRolesSearchResultsResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleMembers">
+      <wsdl:input name="getRoleMembers" message="tns:getRoleMembers">
+    </wsdl:input>
+      <wsdl:output name="getRoleMembersResponse" message="tns:getRoleMembersResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateRoleMember">
+      <wsdl:input name="updateRoleMember" message="tns:updateRoleMember">
+    </wsdl:input>
+      <wsdl:output name="updateRoleMemberResponse" message="tns:updateRoleMemberResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeRoleFromRole">
+      <wsdl:input name="removeRoleFromRole" message="tns:removeRoleFromRole">
+    </wsdl:input>
+      <wsdl:output name="removeRoleFromRoleResponse" message="tns:removeRoleFromRoleResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRole">
+      <wsdl:input name="getRole" message="tns:getRole">
+    </wsdl:input>
+      <wsdl:output name="getRoleResponse" message="tns:getRoleResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getNestedRoleQualifersForPrincipalByNamespaceAndRolename">
+      <wsdl:input name="getNestedRoleQualifersForPrincipalByNamespaceAndRolename" message="tns:getNestedRoleQualifersForPrincipalByNamespaceAndRolename">
+    </wsdl:input>
+      <wsdl:output name="getNestedRoleQualifersForPrincipalByNamespaceAndRolenameResponse" message="tns:getNestedRoleQualifersForPrincipalByNamespaceAndRolenameResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoles">
+      <wsdl:input name="getRoles" message="tns:getRoles">
+    </wsdl:input>
+      <wsdl:output name="getRolesResponse" message="tns:getRolesResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDelegationMemberById">
+      <wsdl:input name="getDelegationMemberById" message="tns:getDelegationMemberById">
+    </wsdl:input>
+      <wsdl:output name="getDelegationMemberByIdResponse" message="tns:getDelegationMemberByIdResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createRoleResponsibilityAction">
+      <wsdl:input name="createRoleResponsibilityAction" message="tns:createRoleResponsibilityAction">
+    </wsdl:input>
+      <wsdl:output name="createRoleResponsibilityActionResponse" message="tns:createRoleResponsibilityActionResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isDerivedRole">
+      <wsdl:input name="isDerivedRole" message="tns:isDerivedRole">
+    </wsdl:input>
+      <wsdl:output name="isDerivedRoleResponse" message="tns:isDerivedRoleResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createDelegateMember">
+      <wsdl:input name="createDelegateMember" message="tns:createDelegateMember">
+    </wsdl:input>
+      <wsdl:output name="createDelegateMemberResponse" message="tns:createDelegateMemberResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleMemberPrincipalIds">
+      <wsdl:input name="getRoleMemberPrincipalIds" message="tns:getRoleMemberPrincipalIds">
+    </wsdl:input>
+      <wsdl:output name="getRoleMemberPrincipalIdsResponse" message="tns:getRoleMemberPrincipalIdsResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFirstLevelRoleMembers">
+      <wsdl:input name="getFirstLevelRoleMembers" message="tns:getFirstLevelRoleMembers">
+    </wsdl:input>
+      <wsdl:output name="getFirstLevelRoleMembersResponse" message="tns:getFirstLevelRoleMembersResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="assignRoleToRole">
+      <wsdl:input name="assignRoleToRole" message="tns:assignRoleToRole">
+    </wsdl:input>
+      <wsdl:output name="assignRoleToRoleResponse" message="tns:assignRoleToRoleResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="assignPrincipalToRole">
+      <wsdl:input name="assignPrincipalToRole" message="tns:assignPrincipalToRole">
+    </wsdl:input>
+      <wsdl:output name="assignPrincipalToRoleResponse" message="tns:assignPrincipalToRoleResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findRoleMemberships">
+      <wsdl:input name="findRoleMemberships" message="tns:findRoleMemberships">
+    </wsdl:input>
+      <wsdl:output name="findRoleMembershipsResponse" message="tns:findRoleMembershipsResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RoleServiceServiceSoapBinding" type="tns:roleService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createDelegateType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createDelegateType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createDelegateTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleResponsibilities">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRoleResponsibilities">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRoleResponsibilitiesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleMemberResponsibilityActions">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRoleMemberResponsibilityActions">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRoleMemberResponsibilityActionsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeDelegateMembers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeDelegateMembers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeDelegateMembersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findDelegateMembers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findDelegateMembers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findDelegateMembersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDelegateTypeByDelegationId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDelegateTypeByDelegationId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDelegateTypeByDelegationIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removePrincipalFromRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removePrincipalFromRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removePrincipalFromRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createRoleMember">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createRoleMember">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createRoleMemberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleQualifersForPrincipalByNamespaceAndRolename">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRoleQualifersForPrincipalByNamespaceAndRolename">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRoleQualifersForPrincipalByNamespaceAndRolenameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateDelegateMember">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateDelegateMember">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateDelegateMemberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="assignPermissionToRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="assignPermissionToRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="assignPermissionToRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findRoleMembers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findRoleMembers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findRoleMembersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDelegationMemberByDelegationAndMemberId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDelegationMemberByDelegationAndMemberId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDelegationMemberByDelegationAndMemberIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isDynamicRoleMembership">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="isDynamicRoleMembership">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isDynamicRoleMembershipResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="revokePermissionFromRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="revokePermissionFromRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="revokePermissionFromRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getNestedRoleQualifiersForPrincipalByRoleIds">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNestedRoleQualifiersForPrincipalByRoleIds">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNestedRoleQualifiersForPrincipalByRoleIdsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDelegationMembersByDelegationId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDelegationMembersByDelegationId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDelegationMembersByDelegationIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleIdByNamespaceCodeAndName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRoleIdByNamespaceCodeAndName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRoleIdByNamespaceCodeAndNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="principalHasRoleCheckDelegation">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="principalHasRoleCheckDelegation">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="principalHasRoleCheckDelegationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleQualifersForPrincipalByRoleIds">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRoleQualifersForPrincipalByRoleIds">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRoleQualifersForPrincipalByRoleIdsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="assignGroupToRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="assignGroupToRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="assignGroupToRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPrincipalIdSubListWithRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPrincipalIdSubListWithRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPrincipalIdSubListWithRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleByNamespaceCodeAndName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRoleByNamespaceCodeAndName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRoleByNamespaceCodeAndNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateDelegateType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateDelegateType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateDelegateTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="principalHasRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="principalHasRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="principalHasRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDelegateTypeByRoleIdAndDelegateTypeCode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDelegateTypeByRoleIdAndDelegateTypeCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDelegateTypeByRoleIdAndDelegateTypeCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleTypeRoleMemberIds">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRoleTypeRoleMemberIds">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRoleTypeRoleMemberIdsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isRoleActive">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="isRoleActive">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isRoleActiveResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeGroupFromRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeGroupFromRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeGroupFromRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberParentRoleIds">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMemberParentRoleIds">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMemberParentRoleIdsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRolesSearchResults">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRolesSearchResults">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRolesSearchResultsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleMembers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRoleMembers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRoleMembersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeRoleFromRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeRoleFromRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeRoleFromRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateRoleMember">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateRoleMember">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateRoleMemberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getNestedRoleQualifersForPrincipalByNamespaceAndRolename">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNestedRoleQualifersForPrincipalByNamespaceAndRolename">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNestedRoleQualifersForPrincipalByNamespaceAndRolenameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoles">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRoles">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRolesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createRoleResponsibilityAction">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createRoleResponsibilityAction">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createRoleResponsibilityActionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDelegationMemberById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDelegationMemberById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDelegationMemberByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isDerivedRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="isDerivedRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isDerivedRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createDelegateMember">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createDelegateMember">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createDelegateMemberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="assignRoleToRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="assignRoleToRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="assignRoleToRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFirstLevelRoleMembers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getFirstLevelRoleMembers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getFirstLevelRoleMembersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleMemberPrincipalIds">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRoleMemberPrincipalIds">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRoleMemberPrincipalIdsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="assignPrincipalToRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="assignPrincipalToRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="assignPrincipalToRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findRoleMemberships">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findRoleMemberships">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findRoleMembershipsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RoleService">
+    <wsdl:port name="roleServicePort" binding="tns:RoleServiceServiceSoapBinding">
+      <soap:address location="http://localhost:9090/roleServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

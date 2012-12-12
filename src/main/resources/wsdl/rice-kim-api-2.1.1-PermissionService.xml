@@ -1,0 +1,18 @@
+<jaxws:bindings
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    wsdlLocation="rice-kim-api-2.2.0-PermissionService.wsdl"
+    xmlns="http://java.sun.com/xml/ns/jaxws"
+    xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+    xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+
+  <jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+  <jaxws:bindings node="wsdl:definitions/wsdl:types/xs:schema[@targetNamespace='http://rice.kuali.org/kim/v2_0']">
+    <jxb:bindings node="xs:complexType[@name='xs:string']//xs:element[@name='id']">
+      <jxb:property name="requestId"/>
+    </jxb:bindings>
+    <jxb:bindings node="xs:complexType[@name='tns:TemplateType']//xs:element[@name='id']">
+      <jxb:property name="responseId"/>
+    </jxb:bindings>     
+  </jaxws:bindings>
+</jaxws:bindings>

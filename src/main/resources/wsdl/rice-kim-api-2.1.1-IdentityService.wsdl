@@ -1,0 +1,4171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="IdentityService" targetNamespace="http://rice.kuali.org/kim/v2_0" xmlns:ns1="http://rice.kuali.org/core/v2_0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://rice.kuali.org/kim/v2_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://rice.kuali.org/core/v2_0" xmlns:tns="http://rice.kuali.org/kim/v2_0" elementFormDefault="qualified" targetNamespace="http://rice.kuali.org/kim/v2_0" version="1.0">
+<xs:import namespace="http://rice.kuali.org/core/v2_0"/>
+<xs:element name="addAddressToEntity" type="tns:addAddressToEntity"/>
+<xs:element name="addAddressToEntityResponse" type="tns:addAddressToEntityResponse"/>
+<xs:element name="addAffiliationToEntity" type="tns:addAffiliationToEntity"/>
+<xs:element name="addAffiliationToEntityResponse" type="tns:addAffiliationToEntityResponse"/>
+<xs:element name="addBioDemographicsToEntity" type="tns:addBioDemographicsToEntity"/>
+<xs:element name="addBioDemographicsToEntityResponse" type="tns:addBioDemographicsToEntityResponse"/>
+<xs:element name="addCitizenshipToEntity" type="tns:addCitizenshipToEntity"/>
+<xs:element name="addCitizenshipToEntityResponse" type="tns:addCitizenshipToEntityResponse"/>
+<xs:element name="addEmailToEntity" type="tns:addEmailToEntity"/>
+<xs:element name="addEmailToEntityResponse" type="tns:addEmailToEntityResponse"/>
+<xs:element name="addEmploymentToEntity" type="tns:addEmploymentToEntity"/>
+<xs:element name="addEmploymentToEntityResponse" type="tns:addEmploymentToEntityResponse"/>
+<xs:element name="addEntityTypeContactInfoToEntity" type="tns:addEntityTypeContactInfoToEntity"/>
+<xs:element name="addEntityTypeContactInfoToEntityResponse" type="tns:addEntityTypeContactInfoToEntityResponse"/>
+<xs:element name="addEthnicityToEntity" type="tns:addEthnicityToEntity"/>
+<xs:element name="addEthnicityToEntityResponse" type="tns:addEthnicityToEntityResponse"/>
+<xs:element name="addExternalIdentifierToEntity" type="tns:addExternalIdentifierToEntity"/>
+<xs:element name="addExternalIdentifierToEntityResponse" type="tns:addExternalIdentifierToEntityResponse"/>
+<xs:element name="addNameToEntity" type="tns:addNameToEntity"/>
+<xs:element name="addNameToEntityResponse" type="tns:addNameToEntityResponse"/>
+<xs:element name="addPhoneToEntity" type="tns:addPhoneToEntity"/>
+<xs:element name="addPhoneToEntityResponse" type="tns:addPhoneToEntityResponse"/>
+<xs:element name="addPrincipalToEntity" type="tns:addPrincipalToEntity"/>
+<xs:element name="addPrincipalToEntityResponse" type="tns:addPrincipalToEntityResponse"/>
+<xs:element name="addPrivacyPreferencesToEntity" type="tns:addPrivacyPreferencesToEntity"/>
+<xs:element name="addPrivacyPreferencesToEntityResponse" type="tns:addPrivacyPreferencesToEntityResponse"/>
+<xs:element name="addResidencyToEntity" type="tns:addResidencyToEntity"/>
+<xs:element name="addResidencyToEntityResponse" type="tns:addResidencyToEntityResponse"/>
+<xs:element name="addVisaToEntity" type="tns:addVisaToEntity"/>
+<xs:element name="addVisaToEntityResponse" type="tns:addVisaToEntityResponse"/>
+<xs:element name="codedAttribute" type="tns:CodedAttributeType"/>
+<xs:element name="createEntity" type="tns:createEntity"/>
+<xs:element name="createEntityResponse" type="tns:createEntityResponse"/>
+<xs:element name="entity" type="tns:EntityType"/>
+<xs:element name="entityAddress" type="tns:EntityAddressType"/>
+<xs:element name="entityAffiliation" type="tns:EntityAffiliationType"/>
+<xs:element name="entityAffiliationType" type="tns:entityAffiliationTypeType"/>
+<xs:element name="entityBioDemographics" type="tns:EntityBioDemographicsType"/>
+<xs:element name="entityCitizenship" type="tns:EntityCitizenshipType"/>
+<xs:element name="entityDefault" type="tns:EntityDefaultType"/>
+<xs:element name="entityDefaultQueryResults" type="tns:entityDefaultQueryResultsType"/>
+<xs:element name="entityEmail" type="tns:EntityEmailType"/>
+<xs:element name="entityEmployment" type="tns:EntityEmploymentType"/>
+<xs:element name="entityEthnicity" type="tns:EntityEthnicityType"/>
+<xs:element name="entityExternalIdentifier" type="tns:EntityExternalIdentifierType"/>
+<xs:element name="entityExternalIdentifierType" type="tns:entityExternalIdentifierTypeType"/>
+<xs:element name="entityName" type="tns:EntityNameType"/>
+<xs:element name="entityNamePrincipalName" type="tns:EntityNamePrincipalNameType"/>
+<xs:element name="entityPhone" type="tns:EntityPhoneType"/>
+<xs:element name="entityPrivacyPreferences" type="tns:EntityPrivacyPreferencesType"/>
+<xs:element name="entityQueryResults" type="tns:entityQueryResultsType"/>
+<xs:element name="entityResidency" type="tns:entityResidencyType"/>
+<xs:element name="entityTypeContactInfo" type="tns:EntityTypeContactInfoType"/>
+<xs:element name="entityTypeDataDefault" type="tns:EntityTypeDataDefaultType"/>
+<xs:element name="entityVisa" type="tns:EntityVisaType"/>
+<xs:element name="findAllAddressTypes" type="tns:findAllAddressTypes"/>
+<xs:element name="findAllAddressTypesResponse" type="tns:findAllAddressTypesResponse"/>
+<xs:element name="findAllAffiliationTypes" type="tns:findAllAffiliationTypes"/>
+<xs:element name="findAllAffiliationTypesResponse" type="tns:findAllAffiliationTypesResponse"/>
+<xs:element name="findAllCitizenshipStatuses" type="tns:findAllCitizenshipStatuses"/>
+<xs:element name="findAllCitizenshipStatusesResponse" type="tns:findAllCitizenshipStatusesResponse"/>
+<xs:element name="findAllEmailTypes" type="tns:findAllEmailTypes"/>
+<xs:element name="findAllEmailTypesResponse" type="tns:findAllEmailTypesResponse"/>
+<xs:element name="findAllEmploymentStatuses" type="tns:findAllEmploymentStatuses"/>
+<xs:element name="findAllEmploymentStatusesResponse" type="tns:findAllEmploymentStatusesResponse"/>
+<xs:element name="findAllEmploymentTypes" type="tns:findAllEmploymentTypes"/>
+<xs:element name="findAllEmploymentTypesResponse" type="tns:findAllEmploymentTypesResponse"/>
+<xs:element name="findAllEntityTypes" type="tns:findAllEntityTypes"/>
+<xs:element name="findAllEntityTypesResponse" type="tns:findAllEntityTypesResponse"/>
+<xs:element name="findAllExternalIdentifierTypeTypes" type="tns:findAllExternalIdentifierTypeTypes"/>
+<xs:element name="findAllExternalIdentifierTypeTypesResponse" type="tns:findAllExternalIdentifierTypeTypesResponse"/>
+<xs:element name="findAllNameTypes" type="tns:findAllNameTypes"/>
+<xs:element name="findAllNameTypesResponse" type="tns:findAllNameTypesResponse"/>
+<xs:element name="findAllPhoneTypes" type="tns:findAllPhoneTypes"/>
+<xs:element name="findAllPhoneTypesResponse" type="tns:findAllPhoneTypesResponse"/>
+<xs:element name="findEntities" type="tns:findEntities"/>
+<xs:element name="findEntitiesResponse" type="tns:findEntitiesResponse"/>
+<xs:element name="findEntityDefaults" type="tns:findEntityDefaults"/>
+<xs:element name="findEntityDefaultsResponse" type="tns:findEntityDefaultsResponse"/>
+<xs:element name="findPrincipals" type="tns:findPrincipals"/>
+<xs:element name="findPrincipalsResponse" type="tns:findPrincipalsResponse"/>
+<xs:element name="getAddressType" type="tns:getAddressType"/>
+<xs:element name="getAddressTypeResponse" type="tns:getAddressTypeResponse"/>
+<xs:element name="getAffiliationType" type="tns:getAffiliationType"/>
+<xs:element name="getAffiliationTypeResponse" type="tns:getAffiliationTypeResponse"/>
+<xs:element name="getCitizenshipStatus" type="tns:getCitizenshipStatus"/>
+<xs:element name="getCitizenshipStatusResponse" type="tns:getCitizenshipStatusResponse"/>
+<xs:element name="getDefaultNamesForPrincipalId" type="tns:getDefaultNamesForPrincipalId"/>
+<xs:element name="getDefaultNamesForPrincipalIdResponse" type="tns:getDefaultNamesForPrincipalIdResponse"/>
+<xs:element name="getEmailType" type="tns:getEmailType"/>
+<xs:element name="getEmailTypeResponse" type="tns:getEmailTypeResponse"/>
+<xs:element name="getEmploymentStatus" type="tns:getEmploymentStatus"/>
+<xs:element name="getEmploymentStatusResponse" type="tns:getEmploymentStatusResponse"/>
+<xs:element name="getEmploymentType" type="tns:getEmploymentType"/>
+<xs:element name="getEmploymentTypeResponse" type="tns:getEmploymentTypeResponse"/>
+<xs:element name="getEntity" type="tns:getEntity"/>
+<xs:element name="getEntityByEmployeeId" type="tns:getEntityByEmployeeId"/>
+<xs:element name="getEntityByEmployeeIdResponse" type="tns:getEntityByEmployeeIdResponse"/>
+<xs:element name="getEntityByPrincipalId" type="tns:getEntityByPrincipalId"/>
+<xs:element name="getEntityByPrincipalIdResponse" type="tns:getEntityByPrincipalIdResponse"/>
+<xs:element name="getEntityByPrincipalName" type="tns:getEntityByPrincipalName"/>
+<xs:element name="getEntityByPrincipalNameResponse" type="tns:getEntityByPrincipalNameResponse"/>
+<xs:element name="getEntityDefault" type="tns:getEntityDefault"/>
+<xs:element name="getEntityDefaultByEmployeeId" type="tns:getEntityDefaultByEmployeeId"/>
+<xs:element name="getEntityDefaultByEmployeeIdResponse" type="tns:getEntityDefaultByEmployeeIdResponse"/>
+<xs:element name="getEntityDefaultByPrincipalId" type="tns:getEntityDefaultByPrincipalId"/>
+<xs:element name="getEntityDefaultByPrincipalIdResponse" type="tns:getEntityDefaultByPrincipalIdResponse"/>
+<xs:element name="getEntityDefaultByPrincipalName" type="tns:getEntityDefaultByPrincipalName"/>
+<xs:element name="getEntityDefaultByPrincipalNameResponse" type="tns:getEntityDefaultByPrincipalNameResponse"/>
+<xs:element name="getEntityDefaultResponse" type="tns:getEntityDefaultResponse"/>
+<xs:element name="getEntityPrivacyPreferences" type="tns:getEntityPrivacyPreferences"/>
+<xs:element name="getEntityPrivacyPreferencesResponse" type="tns:getEntityPrivacyPreferencesResponse"/>
+<xs:element name="getEntityResponse" type="tns:getEntityResponse"/>
+<xs:element name="getEntityType" type="tns:getEntityType"/>
+<xs:element name="getEntityTypeResponse" type="tns:getEntityTypeResponse"/>
+<xs:element name="getExternalIdentifierType" type="tns:getExternalIdentifierType"/>
+<xs:element name="getExternalIdentifierTypeResponse" type="tns:getExternalIdentifierTypeResponse"/>
+<xs:element name="getNameType" type="tns:getNameType"/>
+<xs:element name="getNameTypeResponse" type="tns:getNameTypeResponse"/>
+<xs:element name="getPhoneType" type="tns:getPhoneType"/>
+<xs:element name="getPhoneTypeResponse" type="tns:getPhoneTypeResponse"/>
+<xs:element name="getPrincipal" type="tns:getPrincipal"/>
+<xs:element name="getPrincipalByPrincipalName" type="tns:getPrincipalByPrincipalName"/>
+<xs:element name="getPrincipalByPrincipalNameAndPassword" type="tns:getPrincipalByPrincipalNameAndPassword"/>
+<xs:element name="getPrincipalByPrincipalNameAndPasswordResponse" type="tns:getPrincipalByPrincipalNameAndPasswordResponse"/>
+<xs:element name="getPrincipalByPrincipalNameResponse" type="tns:getPrincipalByPrincipalNameResponse"/>
+<xs:element name="getPrincipalResponse" type="tns:getPrincipalResponse"/>
+<xs:element name="getPrincipals" type="tns:getPrincipals"/>
+<xs:element name="getPrincipalsResponse" type="tns:getPrincipalsResponse"/>
+<xs:element name="inactivateAddress" type="tns:inactivateAddress"/>
+<xs:element name="inactivateAddressResponse" type="tns:inactivateAddressResponse"/>
+<xs:element name="inactivateAffiliation" type="tns:inactivateAffiliation"/>
+<xs:element name="inactivateAffiliationResponse" type="tns:inactivateAffiliationResponse"/>
+<xs:element name="inactivateCitizenship" type="tns:inactivateCitizenship"/>
+<xs:element name="inactivateCitizenshipResponse" type="tns:inactivateCitizenshipResponse"/>
+<xs:element name="inactivateEmail" type="tns:inactivateEmail"/>
+<xs:element name="inactivateEmailResponse" type="tns:inactivateEmailResponse"/>
+<xs:element name="inactivateEmployment" type="tns:inactivateEmployment"/>
+<xs:element name="inactivateEmploymentResponse" type="tns:inactivateEmploymentResponse"/>
+<xs:element name="inactivateEntity" type="tns:inactivateEntity"/>
+<xs:element name="inactivateEntityResponse" type="tns:inactivateEntityResponse"/>
+<xs:element name="inactivateEntityTypeContactInfo" type="tns:inactivateEntityTypeContactInfo"/>
+<xs:element name="inactivateEntityTypeContactInfoResponse" type="tns:inactivateEntityTypeContactInfoResponse"/>
+<xs:element name="inactivateName" type="tns:inactivateName"/>
+<xs:element name="inactivateNameResponse" type="tns:inactivateNameResponse"/>
+<xs:element name="inactivatePhone" type="tns:inactivatePhone"/>
+<xs:element name="inactivatePhoneResponse" type="tns:inactivatePhoneResponse"/>
+<xs:element name="inactivatePrincipal" type="tns:inactivatePrincipal"/>
+<xs:element name="inactivatePrincipalByName" type="tns:inactivatePrincipalByName"/>
+<xs:element name="inactivatePrincipalByNameResponse" type="tns:inactivatePrincipalByNameResponse"/>
+<xs:element name="inactivatePrincipalResponse" type="tns:inactivatePrincipalResponse"/>
+<xs:element name="principal" type="tns:PrincipalType"/>
+<xs:element name="principalQueryResults" type="tns:principalQueryResultsType"/>
+<xs:element name="updateAddress" type="tns:updateAddress"/>
+<xs:element name="updateAddressResponse" type="tns:updateAddressResponse"/>
+<xs:element name="updateAffiliation" type="tns:updateAffiliation"/>
+<xs:element name="updateAffiliationResponse" type="tns:updateAffiliationResponse"/>
+<xs:element name="updateBioDemographics" type="tns:updateBioDemographics"/>
+<xs:element name="updateBioDemographicsResponse" type="tns:updateBioDemographicsResponse"/>
+<xs:element name="updateCitizenship" type="tns:updateCitizenship"/>
+<xs:element name="updateCitizenshipResponse" type="tns:updateCitizenshipResponse"/>
+<xs:element name="updateEmail" type="tns:updateEmail"/>
+<xs:element name="updateEmailResponse" type="tns:updateEmailResponse"/>
+<xs:element name="updateEmployment" type="tns:updateEmployment"/>
+<xs:element name="updateEmploymentResponse" type="tns:updateEmploymentResponse"/>
+<xs:element name="updateEntity" type="tns:updateEntity"/>
+<xs:element name="updateEntityResponse" type="tns:updateEntityResponse"/>
+<xs:element name="updateEntityTypeContactInfo" type="tns:updateEntityTypeContactInfo"/>
+<xs:element name="updateEntityTypeContactInfoResponse" type="tns:updateEntityTypeContactInfoResponse"/>
+<xs:element name="updateEthnicity" type="tns:updateEthnicity"/>
+<xs:element name="updateEthnicityResponse" type="tns:updateEthnicityResponse"/>
+<xs:element name="updateExternalIdentifier" type="tns:updateExternalIdentifier"/>
+<xs:element name="updateExternalIdentifierResponse" type="tns:updateExternalIdentifierResponse"/>
+<xs:element name="updateName" type="tns:updateName"/>
+<xs:element name="updateNameResponse" type="tns:updateNameResponse"/>
+<xs:element name="updatePhone" type="tns:updatePhone"/>
+<xs:element name="updatePhoneResponse" type="tns:updatePhoneResponse"/>
+<xs:element name="updatePrincipal" type="tns:updatePrincipal"/>
+<xs:element name="updatePrincipalResponse" type="tns:updatePrincipalResponse"/>
+<xs:element name="updatePrivacyPreferences" type="tns:updatePrivacyPreferences"/>
+<xs:element name="updatePrivacyPreferencesResponse" type="tns:updatePrivacyPreferencesResponse"/>
+<xs:element name="updateResidency" type="tns:updateResidency"/>
+<xs:element name="updateResidencyResponse" type="tns:updateResidencyResponse"/>
+<xs:element name="updateVisa" type="tns:updateVisa"/>
+<xs:element name="updateVisaResponse" type="tns:updateVisaResponse"/>
+<xs:complexType name="inactivateEmployment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateEmploymentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="employment" type="tns:EntityEmploymentType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="EntityEmploymentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="employeeId" type="xs:string"/>
+      <xs:element minOccurs="0" name="employmentRecordId" type="xs:string"/>
+      <xs:element minOccurs="0" ref="tns:entityAffiliation"/>
+      <xs:element minOccurs="0" name="employeeStatus" type="tns:CodedAttributeType"/>
+      <xs:element minOccurs="0" name="employeeType" type="tns:CodedAttributeType"/>
+      <xs:element minOccurs="0" name="primaryDepartmentCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="baseSalaryAmount" type="xs:string"/>
+      <xs:element name="primary" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="EntityAffiliationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="affiliationType" type="tns:entityAffiliationTypeType"/>
+      <xs:element minOccurs="0" name="campusCode" type="xs:string"/>
+      <xs:element name="defaultValue" type="xs:boolean"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="entityAffiliationTypeType">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="sortCode" type="xs:string"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element name="employmentAffiliationType" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="CodedAttributeType">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="sortCode" type="xs:string"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateCitizenship">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="citizenship" type="tns:EntityCitizenshipType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="EntityCitizenshipType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" type="tns:CodedAttributeType"/>
+      <xs:element minOccurs="0" name="countryCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateCitizenshipResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="citizenship" type="tns:EntityCitizenshipType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateExternalIdentifier">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="externalId" type="tns:EntityExternalIdentifierType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="EntityExternalIdentifierType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="externalIdentifierTypeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="externalIdentifierType" type="tns:entityExternalIdentifierTypeType"/>
+      <xs:element minOccurs="0" name="externalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="entityExternalIdentifierTypeType">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="sortCode" type="xs:string"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element name="encryptionRequired" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateExternalIdentifierResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="externalId" type="tns:EntityExternalIdentifierType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entity"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="EntityType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="principals">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:principal"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="entityTypeContactInfos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:entityTypeContactInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="externalIdentifiers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="externalIdentifier" type="tns:EntityExternalIdentifierType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="affiliations">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="affiliation" type="tns:EntityAffiliationType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="names">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="name" type="tns:EntityNameType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="employmentInformation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="employment" type="tns:EntityEmploymentType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="privacyPreferences" type="tns:EntityPrivacyPreferencesType"/>
+      <xs:element minOccurs="0" name="bioDemographics" type="tns:EntityBioDemographicsType"/>
+      <xs:element minOccurs="0" name="citizenships">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="citizenship" type="tns:EntityCitizenshipType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="primaryEmployment" type="tns:EntityEmploymentType"/>
+      <xs:element minOccurs="0" name="defaultAffiliation" type="tns:EntityAffiliationType"/>
+      <xs:element minOccurs="0" name="defaultName" type="tns:EntityNameType"/>
+      <xs:element minOccurs="0" name="ethnicities">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ethnicity" type="tns:EntityEthnicityType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="residencies">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="residency" type="tns:entityResidencyType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="visas">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="visa" type="tns:EntityVisaType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="PrincipalType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="principalName" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="EntityTypeContactInfoType">
+    <xs:sequence>
+      <xs:element name="entityId" type="xs:string"/>
+      <xs:element name="entityTypeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityType" type="tns:CodedAttributeType"/>
+      <xs:element minOccurs="0" name="addresses">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="address" type="tns:EntityAddressType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="emailAddresses">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="emailAddress" type="tns:EntityEmailType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="phoneNumbers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="phoneNumber" type="tns:EntityPhoneType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="defaultAddress" type="tns:EntityAddressType"/>
+      <xs:element minOccurs="0" name="defaultEmailAddress" type="tns:EntityEmailType"/>
+      <xs:element minOccurs="0" name="defaultPhoneNumber" type="tns:EntityPhoneType"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="EntityAddressType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityTypeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="addressType" type="tns:CodedAttributeType"/>
+      <xs:element minOccurs="0" name="attentionLine" type="xs:string"/>
+      <xs:element minOccurs="0" name="line1" type="xs:string"/>
+      <xs:element minOccurs="0" name="line2" type="xs:string"/>
+      <xs:element minOccurs="0" name="line3" type="xs:string"/>
+      <xs:element minOccurs="0" name="city" type="xs:string"/>
+      <xs:element minOccurs="0" name="stateProvinceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="postalCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="countryCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="attentionLineUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="line1Unmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="line2Unmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="line3Unmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="cityUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="stateProvinceCodeUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="postalCodeUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="countryCodeUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="addressFormat" type="xs:string"/>
+      <xs:element minOccurs="0" name="modifiedDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="validatedDate" type="xs:dateTime"/>
+      <xs:element name="validated" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="noteMessage" type="xs:string"/>
+      <xs:element name="suppressAddress" type="xs:boolean"/>
+      <xs:element name="defaultValue" type="xs:boolean"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="EntityEmailType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityTypeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="emailType" type="tns:CodedAttributeType"/>
+      <xs:element minOccurs="0" name="emailAddress" type="xs:string"/>
+      <xs:element minOccurs="0" name="emailAddressUnmasked" type="xs:string"/>
+      <xs:element name="suppressEmail" type="xs:boolean"/>
+      <xs:element name="defaultValue" type="xs:boolean"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="EntityPhoneType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityTypeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneType" type="tns:CodedAttributeType"/>
+      <xs:element minOccurs="0" name="countryCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="extensionNumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="formattedPhoneNumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="countryCodeUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneNumberUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="extensionNumberUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="formattedPhoneNumberUnmasked" type="xs:string"/>
+      <xs:element name="suppressPhone" type="xs:boolean"/>
+      <xs:element name="defaultValue" type="xs:boolean"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="EntityNameType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="nameType" type="tns:CodedAttributeType"/>
+      <xs:element minOccurs="0" name="namePrefix" type="xs:string"/>
+      <xs:element minOccurs="0" name="nameTitle" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="middleName" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="nameSuffix" type="xs:string"/>
+      <xs:element minOccurs="0" name="compositeName" type="xs:string"/>
+      <xs:element minOccurs="0" name="namePrefixUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="nameTitleUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstNameUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="middleNameUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastNameUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="nameSuffixUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="compositeNameUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="noteMessage" type="xs:string"/>
+      <xs:element minOccurs="0" name="nameChangedDate" type="xs:dateTime"/>
+      <xs:element name="suppressName" type="xs:boolean"/>
+      <xs:element name="defaultValue" type="xs:boolean"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="EntityPrivacyPreferencesType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element name="suppressName" type="xs:boolean"/>
+      <xs:element name="suppressAddress" type="xs:boolean"/>
+      <xs:element name="suppressEmail" type="xs:boolean"/>
+      <xs:element name="suppressPhone" type="xs:boolean"/>
+      <xs:element name="suppressPersonal" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="EntityBioDemographicsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="deceasedDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="birthDate" type="xs:string"/>
+      <xs:element name="age" type="xs:int"/>
+      <xs:element minOccurs="0" name="genderCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="genderChangeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="maritalStatusCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="primaryLanguageCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="secondaryLanguageCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="birthCountry" type="xs:string"/>
+      <xs:element minOccurs="0" name="birthStateProvinceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="birthCity" type="xs:string"/>
+      <xs:element minOccurs="0" name="geographicOrigin" type="xs:string"/>
+      <xs:element minOccurs="0" name="birthDateUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="genderCodeUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="genderChangeCodeUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="maritalStatusCodeUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="primaryLanguageCodeUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="secondaryLanguageCodeUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="birthCountryUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="birthStateProvinceCodeUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="birthCityUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="geographicOriginUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="noteMessage" type="xs:string"/>
+      <xs:element name="suppressPersonal" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="EntityEthnicityType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="ethnicityCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="ethnicityCodeUnmasked" type="xs:string"/>
+      <xs:element minOccurs="0" name="subEthnicityCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="subEthnicityCodeUnmasked" type="xs:string"/>
+      <xs:element name="suppressPersonal" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="entityResidencyType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="determinationMethod" type="xs:string"/>
+      <xs:element minOccurs="0" name="inState" type="xs:string"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="EntityVisaType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="visaTypeKey" type="xs:string"/>
+      <xs:element minOccurs="0" name="visaEntry" type="xs:string"/>
+      <xs:element minOccurs="0" name="visaId" type="xs:string"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findPrincipals">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="query" type="ns1:QueryByCriteriaType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findPrincipalsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results" type="tns:principalQueryResultsType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="principalQueryResultsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Principal" type="tns:PrincipalType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="totalRowCount" type="xs:int"/>
+      <xs:element name="moreResultsAvailable" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addEthnicityToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ethnicity" type="tns:EntityEthnicityType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addEthnicityToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ethnicity" type="tns:EntityEthnicityType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivatePrincipal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivatePrincipalResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:principal"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateEntityTypeContactInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="entityTypeCode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateEntityTypeContactInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entityTypeContactInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addNameToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="tns:EntityNameType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addNameToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="tns:EntityNameType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPrincipalByPrincipalName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPrincipalByPrincipalNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:principal"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDefaultNamesForPrincipalId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDefaultNamesForPrincipalIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entityNamePrincipalName"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="EntityNamePrincipalNameType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="defaultName" type="tns:EntityNameType"/>
+      <xs:element minOccurs="0" name="principalName" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateCitizenship">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateCitizenshipResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="citizenship" type="tns:EntityCitizenshipType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address" type="tns:EntityAddressType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateAddressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address" type="tns:EntityAddressType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getCitizenshipStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getCitizenshipStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="type" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivatePrincipalByName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivatePrincipalByNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:principal"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findAllAffiliationTypes">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="findAllAffiliationTypesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="types" type="tns:entityAffiliationTypeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getExternalIdentifierType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getExternalIdentifierTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="type" type="tns:entityExternalIdentifierTypeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEmailType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEmailTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="type" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addResidencyToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="residency" type="tns:entityResidencyType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addResidencyToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="residency" type="tns:entityResidencyType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="type" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getAddressType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getAddressTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="type" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getNameType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getNameTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="type" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateResidency">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="residency" type="tns:entityResidencyType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateResidencyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="residency" type="tns:entityResidencyType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityDefaultByPrincipalId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityDefaultByPrincipalIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entityDefault"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="EntityDefaultType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="entityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="tns:EntityNameType"/>
+      <xs:element minOccurs="0" name="principals">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:principal"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="entityTypeContactInfos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entityTypeContactInfo" type="tns:EntityTypeDataDefaultType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="affiliations">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="affiliation" type="tns:EntityAffiliationType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="defaultAffiliation" type="tns:EntityAffiliationType"/>
+      <xs:element minOccurs="0" name="employment" type="tns:EntityEmploymentType"/>
+      <xs:element minOccurs="0" name="externalIdentifiers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="externalIdentifier" type="tns:EntityExternalIdentifierType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="privacyPreferences" type="tns:EntityPrivacyPreferencesType"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="EntityTypeDataDefaultType">
+    <xs:sequence>
+      <xs:element name="entityTypeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="defaultAddress" type="tns:EntityAddressType"/>
+      <xs:element minOccurs="0" name="defaultEmailAddress" type="tns:EntityEmailType"/>
+      <xs:element minOccurs="0" name="defaultPhoneNumber" type="tns:EntityPhoneType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addPrivacyPreferencesToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="privacyPreferences" type="tns:EntityPrivacyPreferencesType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addPrivacyPreferencesToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="privacyPreferences" type="tns:EntityPrivacyPreferencesType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addAffiliationToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="affiliation" type="tns:EntityAffiliationType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addAffiliationToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="affiliation" type="tns:EntityAffiliationType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityByPrincipalName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityByPrincipalNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entity"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findAllNameTypes">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="findAllNameTypesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="types" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addEmailToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="tns:EntityEmailType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addEmailToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="tns:EntityEmailType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findEntities">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="query" type="ns1:QueryByCriteriaType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findEntitiesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results" type="tns:entityQueryResultsType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="entityQueryResultsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:entity"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="totalRowCount" type="xs:int"/>
+      <xs:element name="moreResultsAvailable" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEmploymentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEmploymentTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="type" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findEntityDefaults">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="query" type="ns1:QueryByCriteriaType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findEntityDefaultsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results" type="tns:entityDefaultQueryResultsType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="entityDefaultQueryResultsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:entityDefault"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="totalRowCount" type="xs:int"/>
+      <xs:element name="moreResultsAvailable" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateEmployment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="employment" type="tns:EntityEmploymentType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateEmploymentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="employment" type="tns:EntityEmploymentType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getAffiliationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getAffiliationTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="affiliationType" type="tns:entityAffiliationTypeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entity"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entity"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateAffiliation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateAffiliationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="affiliation" type="tns:EntityAffiliationType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPhoneType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPhoneTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="type" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addVisaToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="visa" type="tns:EntityVisaType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addVisaToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="visa" type="tns:EntityVisaType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updatePrincipal">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:principal"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updatePrincipalResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:principal"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateVisa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="visa" type="tns:EntityVisaType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateVisaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="visa" type="tns:EntityVisaType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addPhoneToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="phone" type="tns:EntityPhoneType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addPhoneToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="phone" type="tns:EntityPhoneType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityDefault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityDefaultResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entityDefault"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findAllEntityTypes">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="findAllEntityTypesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="types" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findAllEmploymentStatuses">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="findAllEmploymentStatusesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="types" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findAllExternalIdentifierTypeTypes">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="findAllExternalIdentifierTypeTypesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="types" type="tns:entityExternalIdentifierTypeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findAllAddressTypes">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="findAllAddressTypesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="types" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addEmploymentToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="employment" type="tns:EntityEmploymentType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addEmploymentToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="employment" type="tns:EntityEmploymentType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addBioDemographicsToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bioDemographics" type="tns:EntityBioDemographicsType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addBioDemographicsToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bioDemographics" type="tns:EntityBioDemographicsType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateEmail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateEmailResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="tns:EntityEmailType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entity"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findAllCitizenshipStatuses">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="findAllCitizenshipStatusesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="types" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateAffiliation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="affiliation" type="tns:EntityAffiliationType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateAffiliationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="affiliation" type="tns:EntityAffiliationType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEmploymentStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEmploymentStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="type" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addEntityTypeContactInfoToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entityTypeContactInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addEntityTypeContactInfoToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entityTypeContactInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findAllEmailTypes">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="findAllEmailTypesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="types" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPrincipalByPrincipalNameAndPassword">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalName" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPrincipalByPrincipalNameAndPasswordResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:principal"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updatePhone">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="phone" type="tns:EntityPhoneType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updatePhoneResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="phone" type="tns:EntityPhoneType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityByPrincipalId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityByPrincipalIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entity"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateEmail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="tns:EntityEmailType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateEmailResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="tns:EntityEmailType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="tns:EntityNameType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="tns:EntityNameType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityDefaultByEmployeeId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="employeeId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityDefaultByEmployeeIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entityDefault"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateAddressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address" type="tns:EntityAddressType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateBioDemographics">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bioDemographics" type="tns:EntityBioDemographicsType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateBioDemographicsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bioDemographics" type="tns:EntityBioDemographicsType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findAllEmploymentTypes">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="findAllEmploymentTypesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="types" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addAddressToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address" type="tns:EntityAddressType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addAddressToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address" type="tns:EntityAddressType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivateNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="tns:EntityNameType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateEthnicity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ethnicity" type="tns:EntityEthnicityType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateEthnicityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ethnicity" type="tns:EntityEthnicityType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivatePhone">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inactivatePhoneResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="phone" type="tns:EntityPhoneType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updatePrivacyPreferences">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="privacyPreferences" type="tns:EntityPrivacyPreferencesType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updatePrivacyPreferencesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="privacyPreferences" type="tns:EntityPrivacyPreferencesType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityByEmployeeId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="employeeId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityByEmployeeIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entity"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addExternalIdentifierToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="externalId" type="tns:EntityExternalIdentifierType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addExternalIdentifierToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="externalId" type="tns:EntityExternalIdentifierType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPrincipals">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="principalIds" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPrincipalsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="ret" type="tns:PrincipalType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addPrincipalToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:principal"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addPrincipalToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:principal"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityDefaultByPrincipalName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityDefaultByPrincipalNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entityDefault"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entity"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entity"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addCitizenshipToEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="citizenship" type="tns:EntityCitizenshipType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addCitizenshipToEntityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="citizenship" type="tns:EntityCitizenshipType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityPrivacyPreferences">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntityPrivacyPreferencesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="privacyPreferences" type="tns:EntityPrivacyPreferencesType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findAllPhoneTypes">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="findAllPhoneTypesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="types" type="tns:CodedAttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPrincipal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPrincipalResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:principal"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateEntityTypeContactInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entityTypeContactInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updateEntityTypeContactInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:entityTypeContactInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://rice.kuali.org/core/v2_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://rice.kuali.org/core/v2_0">
+  <xs:element name="and" type="tns:AndType"/>
+  <xs:element name="dateTimeValue" type="tns:CriteriaDateTimeValueType"/>
+  <xs:element name="decimalValue" type="tns:CriteriaDecimalValueType"/>
+  <xs:element name="equal" type="tns:EqualType"/>
+  <xs:element name="greaterThan" type="tns:GreaterThanType"/>
+  <xs:element name="greaterThanOrEqual" type="tns:GreaterThanOrEqualType"/>
+  <xs:element name="in" type="tns:InType"/>
+  <xs:element name="integerValue" type="tns:CriteriaIntegerValueType"/>
+  <xs:element name="lessThan" type="tns:LessThanType"/>
+  <xs:element name="lessThanOrEqual" type="tns:LessThanOrEqualType"/>
+  <xs:element name="like" type="tns:LikeType"/>
+  <xs:element name="notEqual" type="tns:NotEqualType"/>
+  <xs:element name="notIn" type="tns:NotInType"/>
+  <xs:element name="notLike" type="tns:NotLikeType"/>
+  <xs:element name="notNull" type="tns:NotNullType"/>
+  <xs:element name="null" type="tns:NullType"/>
+  <xs:element name="or" type="tns:OrType"/>
+  <xs:element name="queryByCriteria" type="tns:QueryByCriteriaType"/>
+  <xs:element name="stringValue" type="tns:CriteriaStringValueType"/>
+  <xs:complexType final="extension restriction" name="QueryByCriteriaType">
+    <xs:sequence>
+      <xs:choice minOccurs="0">
+        <xs:element ref="tns:and"/>
+        <xs:element ref="tns:equal"/>
+        <xs:element ref="tns:greaterThan"/>
+        <xs:element ref="tns:greaterThanOrEqual"/>
+        <xs:element ref="tns:in"/>
+        <xs:element ref="tns:lessThan"/>
+        <xs:element ref="tns:lessThanOrEqual"/>
+        <xs:element ref="tns:like"/>
+        <xs:element ref="tns:notEqual"/>
+        <xs:element ref="tns:notIn"/>
+        <xs:element ref="tns:notLike"/>
+        <xs:element ref="tns:notNull"/>
+        <xs:element ref="tns:null"/>
+        <xs:element ref="tns:or"/>
+      </xs:choice>
+      <xs:element minOccurs="0" name="startAtIndex" type="xs:int"/>
+      <xs:element minOccurs="0" name="maxResults" type="xs:int"/>
+      <xs:element name="countFlag" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="AndType">
+    <xs:complexContent>
+      <xs:extension base="tns:CompositePredicateType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="CompositePredicateType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded">
+            <xs:element ref="tns:and"/>
+            <xs:element ref="tns:equal"/>
+            <xs:element ref="tns:greaterThan"/>
+            <xs:element ref="tns:greaterThanOrEqual"/>
+            <xs:element ref="tns:in"/>
+            <xs:element ref="tns:lessThan"/>
+            <xs:element ref="tns:lessThanOrEqual"/>
+            <xs:element ref="tns:like"/>
+            <xs:element ref="tns:notEqual"/>
+            <xs:element ref="tns:notIn"/>
+            <xs:element ref="tns:notLike"/>
+            <xs:element ref="tns:notNull"/>
+            <xs:element ref="tns:null"/>
+            <xs:element ref="tns:or"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractPredicate">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="EqualType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="CriteriaStringValueType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="CriteriaDateTimeValueType">
+    <xs:restriction base="xs:dateTime"/>
+  </xs:simpleType>
+  <xs:simpleType name="CriteriaDecimalValueType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="CriteriaIntegerValueType">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+  <xs:complexType final="extension restriction" name="GreaterThanType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="GreaterThanOrEqualType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="InType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded">
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:decimalValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="LessThanType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="LessThanOrEqualType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="LikeType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:element ref="tns:stringValue"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NotEqualType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NotInType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded">
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:decimalValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NotLikeType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:element ref="tns:stringValue"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NotNullType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NullType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="OrType">
+    <xs:complexContent>
+      <xs:extension base="tns:CompositePredicateType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IllegalArgumentFault" type="tns:IllegalArgumentFault"/>
+  <xs:complexType name="IllegalArgumentFault">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:element name="IllegalStateFault" type="tns:IllegalStateFault"/>
+  <xs:complexType name="IllegalStateFault">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="inactivateEntityTypeContactInfo">
+    <wsdl:part name="parameters" element="tns:inactivateEntityTypeContactInfo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getExternalIdentifierTypeResponse">
+    <wsdl:part name="parameters" element="tns:getExternalIdentifierTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateExternalIdentifier">
+    <wsdl:part name="parameters" element="tns:updateExternalIdentifier">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityDefaultByPrincipalNameResponse">
+    <wsdl:part name="parameters" element="tns:getEntityDefaultByPrincipalNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEthnicityResponse">
+    <wsdl:part name="parameters" element="tns:updateEthnicityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityDefaultByPrincipalIdResponse">
+    <wsdl:part name="parameters" element="tns:getEntityDefaultByPrincipalIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAffiliationToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addAffiliationToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateAffiliation">
+    <wsdl:part name="parameters" element="tns:inactivateAffiliation">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivatePhone">
+    <wsdl:part name="parameters" element="tns:inactivatePhone">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllAffiliationTypesResponse">
+    <wsdl:part name="parameters" element="tns:findAllAffiliationTypesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findEntityDefaultsResponse">
+    <wsdl:part name="parameters" element="tns:findEntityDefaultsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllEntityTypes">
+    <wsdl:part name="parameters" element="tns:findAllEntityTypes">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addResidencyToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addResidencyToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addBioDemographicsToEntity">
+    <wsdl:part name="parameters" element="tns:addBioDemographicsToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrincipalResponse">
+    <wsdl:part name="parameters" element="tns:getPrincipalResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivatePrincipalByNameResponse">
+    <wsdl:part name="parameters" element="tns:inactivatePrincipalByNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAddress">
+    <wsdl:part name="parameters" element="tns:updateAddress">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findEntities">
+    <wsdl:part name="parameters" element="tns:findEntities">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEntityTypeContactInfo">
+    <wsdl:part name="parameters" element="tns:updateEntityTypeContactInfo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEmail">
+    <wsdl:part name="parameters" element="tns:updateEmail">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllEntityTypesResponse">
+    <wsdl:part name="parameters" element="tns:findAllEntityTypesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findPrincipalsResponse">
+    <wsdl:part name="parameters" element="tns:findPrincipalsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addEmploymentToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addEmploymentToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addPrincipalToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addPrincipalToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAffiliationType">
+    <wsdl:part name="parameters" element="tns:getAffiliationType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePhoneResponse">
+    <wsdl:part name="parameters" element="tns:updatePhoneResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllEmploymentStatuses">
+    <wsdl:part name="parameters" element="tns:findAllEmploymentStatuses">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivatePrincipal">
+    <wsdl:part name="parameters" element="tns:inactivatePrincipal">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityDefaultByPrincipalId">
+    <wsdl:part name="parameters" element="tns:getEntityDefaultByPrincipalId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateBioDemographics">
+    <wsdl:part name="parameters" element="tns:updateBioDemographics">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCitizenshipToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addCitizenshipToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityTypeResponse">
+    <wsdl:part name="parameters" element="tns:getEntityTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCitizenshipStatus">
+    <wsdl:part name="parameters" element="tns:getCitizenshipStatus">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateEmploymentResponse">
+    <wsdl:part name="parameters" element="tns:inactivateEmploymentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateEntityTypeContactInfoResponse">
+    <wsdl:part name="parameters" element="tns:inactivateEntityTypeContactInfoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateName">
+    <wsdl:part name="parameters" element="tns:updateName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityByEmployeeIdResponse">
+    <wsdl:part name="parameters" element="tns:getEntityByEmployeeIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllEmploymentStatusesResponse">
+    <wsdl:part name="parameters" element="tns:findAllEmploymentStatusesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEntityResponse">
+    <wsdl:part name="parameters" element="tns:updateEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllEmailTypesResponse">
+    <wsdl:part name="parameters" element="tns:findAllEmailTypesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateResidency">
+    <wsdl:part name="parameters" element="tns:updateResidency">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateCitizenshipResponse">
+    <wsdl:part name="parameters" element="tns:inactivateCitizenshipResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateEntityResponse">
+    <wsdl:part name="parameters" element="tns:inactivateEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addPrincipalToEntity">
+    <wsdl:part name="parameters" element="tns:addPrincipalToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateEntity">
+    <wsdl:part name="parameters" element="tns:inactivateEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateResidencyResponse">
+    <wsdl:part name="parameters" element="tns:updateResidencyResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityByPrincipalName">
+    <wsdl:part name="parameters" element="tns:getEntityByPrincipalName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateEmployment">
+    <wsdl:part name="parameters" element="tns:inactivateEmployment">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findPrincipals">
+    <wsdl:part name="parameters" element="tns:findPrincipals">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivatePrincipalByName">
+    <wsdl:part name="parameters" element="tns:inactivatePrincipalByName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateCitizenshipResponse">
+    <wsdl:part name="parameters" element="tns:updateCitizenshipResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addPhoneToEntity">
+    <wsdl:part name="parameters" element="tns:addPhoneToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addEthnicityToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addEthnicityToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEntityTypeContactInfoResponse">
+    <wsdl:part name="parameters" element="tns:updateEntityTypeContactInfoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEmailResponse">
+    <wsdl:part name="parameters" element="tns:updateEmailResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findEntityDefaults">
+    <wsdl:part name="parameters" element="tns:findEntityDefaults">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addEmailToEntity">
+    <wsdl:part name="parameters" element="tns:addEmailToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addVisaToEntity">
+    <wsdl:part name="parameters" element="tns:addVisaToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPhoneType">
+    <wsdl:part name="parameters" element="tns:getPhoneType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCitizenshipToEntity">
+    <wsdl:part name="parameters" element="tns:addCitizenshipToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrincipalByPrincipalNameAndPassword">
+    <wsdl:part name="parameters" element="tns:getPrincipalByPrincipalNameAndPassword">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateCitizenship">
+    <wsdl:part name="parameters" element="tns:updateCitizenship">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addResidencyToEntity">
+    <wsdl:part name="parameters" element="tns:addResidencyToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAddressType">
+    <wsdl:part name="parameters" element="tns:getAddressType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityType">
+    <wsdl:part name="parameters" element="tns:getEntityType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateEmailResponse">
+    <wsdl:part name="parameters" element="tns:inactivateEmailResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateCitizenship">
+    <wsdl:part name="parameters" element="tns:inactivateCitizenship">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePrincipalResponse">
+    <wsdl:part name="parameters" element="tns:updatePrincipalResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addEthnicityToEntity">
+    <wsdl:part name="parameters" element="tns:addEthnicityToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllEmploymentTypesResponse">
+    <wsdl:part name="parameters" element="tns:findAllEmploymentTypesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivatePrincipalResponse">
+    <wsdl:part name="parameters" element="tns:inactivatePrincipalResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addEntityTypeContactInfoToEntity">
+    <wsdl:part name="parameters" element="tns:addEntityTypeContactInfoToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEntity">
+    <wsdl:part name="parameters" element="tns:createEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePrivacyPreferences">
+    <wsdl:part name="parameters" element="tns:updatePrivacyPreferences">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addVisaToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addVisaToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePhone">
+    <wsdl:part name="parameters" element="tns:updatePhone">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDefaultNamesForPrincipalIdResponse">
+    <wsdl:part name="parameters" element="tns:getDefaultNamesForPrincipalIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addNameToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addNameToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllEmploymentTypes">
+    <wsdl:part name="parameters" element="tns:findAllEmploymentTypes">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllNameTypes">
+    <wsdl:part name="parameters" element="tns:findAllNameTypes">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDefaultNamesForPrincipalId">
+    <wsdl:part name="parameters" element="tns:getDefaultNamesForPrincipalId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateNameResponse">
+    <wsdl:part name="parameters" element="tns:inactivateNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmploymentTypeResponse">
+    <wsdl:part name="parameters" element="tns:getEmploymentTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllEmailTypes">
+    <wsdl:part name="parameters" element="tns:findAllEmailTypes">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateAffiliationResponse">
+    <wsdl:part name="parameters" element="tns:inactivateAffiliationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEntity">
+    <wsdl:part name="parameters" element="tns:updateEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityByEmployeeId">
+    <wsdl:part name="parameters" element="tns:getEntityByEmployeeId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNameType">
+    <wsdl:part name="parameters" element="tns:getNameType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityPrivacyPreferencesResponse">
+    <wsdl:part name="parameters" element="tns:getEntityPrivacyPreferencesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateExternalIdentifierResponse">
+    <wsdl:part name="parameters" element="tns:updateExternalIdentifierResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrincipalByPrincipalName">
+    <wsdl:part name="parameters" element="tns:getPrincipalByPrincipalName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllAddressTypes">
+    <wsdl:part name="parameters" element="tns:findAllAddressTypes">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addEntityTypeContactInfoToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addEntityTypeContactInfoToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addPhoneToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addPhoneToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllPhoneTypesResponse">
+    <wsdl:part name="parameters" element="tns:findAllPhoneTypesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntity">
+    <wsdl:part name="parameters" element="tns:getEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllNameTypesResponse">
+    <wsdl:part name="parameters" element="tns:findAllNameTypesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addPrivacyPreferencesToEntity">
+    <wsdl:part name="parameters" element="tns:addPrivacyPreferencesToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityByPrincipalNameResponse">
+    <wsdl:part name="parameters" element="tns:getEntityByPrincipalNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllPhoneTypes">
+    <wsdl:part name="parameters" element="tns:findAllPhoneTypes">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateAddress">
+    <wsdl:part name="parameters" element="tns:inactivateAddress">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateBioDemographicsResponse">
+    <wsdl:part name="parameters" element="tns:updateBioDemographicsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEmploymentResponse">
+    <wsdl:part name="parameters" element="tns:updateEmploymentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityDefault">
+    <wsdl:part name="parameters" element="tns:getEntityDefault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityDefaultByPrincipalName">
+    <wsdl:part name="parameters" element="tns:getEntityDefaultByPrincipalName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllAddressTypesResponse">
+    <wsdl:part name="parameters" element="tns:findAllAddressTypesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEthnicity">
+    <wsdl:part name="parameters" element="tns:updateEthnicity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAffiliationResponse">
+    <wsdl:part name="parameters" element="tns:updateAffiliationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllCitizenshipStatusesResponse">
+    <wsdl:part name="parameters" element="tns:findAllCitizenshipStatusesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addNameToEntity">
+    <wsdl:part name="parameters" element="tns:addNameToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePrincipal">
+    <wsdl:part name="parameters" element="tns:updatePrincipal">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityDefaultByEmployeeIdResponse">
+    <wsdl:part name="parameters" element="tns:getEntityDefaultByEmployeeIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addExternalIdentifierToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addExternalIdentifierToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePrivacyPreferencesResponse">
+    <wsdl:part name="parameters" element="tns:updatePrivacyPreferencesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAddressToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addAddressToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmploymentStatus">
+    <wsdl:part name="parameters" element="tns:getEmploymentStatus">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RiceIllegalArgumentException">
+    <wsdl:part name="RiceIllegalArgumentException" element="ns1:IllegalArgumentFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAddressTypeResponse">
+    <wsdl:part name="parameters" element="tns:getAddressTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllAffiliationTypes">
+    <wsdl:part name="parameters" element="tns:findAllAffiliationTypes">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateEmail">
+    <wsdl:part name="parameters" element="tns:inactivateEmail">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getExternalIdentifierType">
+    <wsdl:part name="parameters" element="tns:getExternalIdentifierType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateName">
+    <wsdl:part name="parameters" element="tns:inactivateName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addEmailToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addEmailToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityResponse">
+    <wsdl:part name="parameters" element="tns:getEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllExternalIdentifierTypeTypesResponse">
+    <wsdl:part name="parameters" element="tns:findAllExternalIdentifierTypeTypesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addPrivacyPreferencesToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addPrivacyPreferencesToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityDefaultByEmployeeId">
+    <wsdl:part name="parameters" element="tns:getEntityDefaultByEmployeeId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAffiliationTypeResponse">
+    <wsdl:part name="parameters" element="tns:getAffiliationTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityByPrincipalIdResponse">
+    <wsdl:part name="parameters" element="tns:getEntityByPrincipalIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addBioDemographicsToEntityResponse">
+    <wsdl:part name="parameters" element="tns:addBioDemographicsToEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmailType">
+    <wsdl:part name="parameters" element="tns:getEmailType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateVisa">
+    <wsdl:part name="parameters" element="tns:updateVisa">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllCitizenshipStatuses">
+    <wsdl:part name="parameters" element="tns:findAllCitizenshipStatuses">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RiceIllegalStateException">
+    <wsdl:part name="RiceIllegalStateException" element="ns1:IllegalStateFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrincipals">
+    <wsdl:part name="parameters" element="tns:getPrincipals">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNameTypeResponse">
+    <wsdl:part name="parameters" element="tns:getNameTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCitizenshipStatusResponse">
+    <wsdl:part name="parameters" element="tns:getCitizenshipStatusResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrincipalsResponse">
+    <wsdl:part name="parameters" element="tns:getPrincipalsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmploymentType">
+    <wsdl:part name="parameters" element="tns:getEmploymentType">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrincipalByPrincipalNameAndPasswordResponse">
+    <wsdl:part name="parameters" element="tns:getPrincipalByPrincipalNameAndPasswordResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivatePhoneResponse">
+    <wsdl:part name="parameters" element="tns:inactivatePhoneResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrincipalByPrincipalNameResponse">
+    <wsdl:part name="parameters" element="tns:getPrincipalByPrincipalNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addExternalIdentifierToEntity">
+    <wsdl:part name="parameters" element="tns:addExternalIdentifierToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAddressResponse">
+    <wsdl:part name="parameters" element="tns:updateAddressResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAffiliation">
+    <wsdl:part name="parameters" element="tns:updateAffiliation">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateVisaResponse">
+    <wsdl:part name="parameters" element="tns:updateVisaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllExternalIdentifierTypeTypes">
+    <wsdl:part name="parameters" element="tns:findAllExternalIdentifierTypeTypes">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityPrivacyPreferences">
+    <wsdl:part name="parameters" element="tns:getEntityPrivacyPreferences">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAffiliationToEntity">
+    <wsdl:part name="parameters" element="tns:addAffiliationToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addEmploymentToEntity">
+    <wsdl:part name="parameters" element="tns:addEmploymentToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmailTypeResponse">
+    <wsdl:part name="parameters" element="tns:getEmailTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEmployment">
+    <wsdl:part name="parameters" element="tns:updateEmployment">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAddressToEntity">
+    <wsdl:part name="parameters" element="tns:addAddressToEntity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateNameResponse">
+    <wsdl:part name="parameters" element="tns:updateNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findEntitiesResponse">
+    <wsdl:part name="parameters" element="tns:findEntitiesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inactivateAddressResponse">
+    <wsdl:part name="parameters" element="tns:inactivateAddressResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityDefaultResponse">
+    <wsdl:part name="parameters" element="tns:getEntityDefaultResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntityByPrincipalId">
+    <wsdl:part name="parameters" element="tns:getEntityByPrincipalId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmploymentStatusResponse">
+    <wsdl:part name="parameters" element="tns:getEmploymentStatusResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPhoneTypeResponse">
+    <wsdl:part name="parameters" element="tns:getPhoneTypeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPrincipal">
+    <wsdl:part name="parameters" element="tns:getPrincipal">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEntityResponse">
+    <wsdl:part name="parameters" element="tns:createEntityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="identityService">
+    <wsdl:operation name="inactivateEmployment">
+      <wsdl:input name="inactivateEmployment" message="tns:inactivateEmployment">
+    </wsdl:input>
+      <wsdl:output name="inactivateEmploymentResponse" message="tns:inactivateEmploymentResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateCitizenship">
+      <wsdl:input name="updateCitizenship" message="tns:updateCitizenship">
+    </wsdl:input>
+      <wsdl:output name="updateCitizenshipResponse" message="tns:updateCitizenshipResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateExternalIdentifier">
+      <wsdl:input name="updateExternalIdentifier" message="tns:updateExternalIdentifier">
+    </wsdl:input>
+      <wsdl:output name="updateExternalIdentifierResponse" message="tns:updateExternalIdentifierResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntity">
+      <wsdl:input name="getEntity" message="tns:getEntity">
+    </wsdl:input>
+      <wsdl:output name="getEntityResponse" message="tns:getEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPrincipals">
+      <wsdl:input name="findPrincipals" message="tns:findPrincipals">
+    </wsdl:input>
+      <wsdl:output name="findPrincipalsResponse" message="tns:findPrincipalsResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addEthnicityToEntity">
+      <wsdl:input name="addEthnicityToEntity" message="tns:addEthnicityToEntity">
+    </wsdl:input>
+      <wsdl:output name="addEthnicityToEntityResponse" message="tns:addEthnicityToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivatePrincipal">
+      <wsdl:input name="inactivatePrincipal" message="tns:inactivatePrincipal">
+    </wsdl:input>
+      <wsdl:output name="inactivatePrincipalResponse" message="tns:inactivatePrincipalResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivateEntityTypeContactInfo">
+      <wsdl:input name="inactivateEntityTypeContactInfo" message="tns:inactivateEntityTypeContactInfo">
+    </wsdl:input>
+      <wsdl:output name="inactivateEntityTypeContactInfoResponse" message="tns:inactivateEntityTypeContactInfoResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addNameToEntity">
+      <wsdl:input name="addNameToEntity" message="tns:addNameToEntity">
+    </wsdl:input>
+      <wsdl:output name="addNameToEntityResponse" message="tns:addNameToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPrincipalByPrincipalName">
+      <wsdl:input name="getPrincipalByPrincipalName" message="tns:getPrincipalByPrincipalName">
+    </wsdl:input>
+      <wsdl:output name="getPrincipalByPrincipalNameResponse" message="tns:getPrincipalByPrincipalNameResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDefaultNamesForPrincipalId">
+      <wsdl:input name="getDefaultNamesForPrincipalId" message="tns:getDefaultNamesForPrincipalId">
+    </wsdl:input>
+      <wsdl:output name="getDefaultNamesForPrincipalIdResponse" message="tns:getDefaultNamesForPrincipalIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inactivateCitizenship">
+      <wsdl:input name="inactivateCitizenship" message="tns:inactivateCitizenship">
+    </wsdl:input>
+      <wsdl:output name="inactivateCitizenshipResponse" message="tns:inactivateCitizenshipResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateAddress">
+      <wsdl:input name="updateAddress" message="tns:updateAddress">
+    </wsdl:input>
+      <wsdl:output name="updateAddressResponse" message="tns:updateAddressResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCitizenshipStatus">
+      <wsdl:input name="getCitizenshipStatus" message="tns:getCitizenshipStatus">
+    </wsdl:input>
+      <wsdl:output name="getCitizenshipStatusResponse" message="tns:getCitizenshipStatusResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivatePrincipalByName">
+      <wsdl:input name="inactivatePrincipalByName" message="tns:inactivatePrincipalByName">
+    </wsdl:input>
+      <wsdl:output name="inactivatePrincipalByNameResponse" message="tns:inactivatePrincipalByNameResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllAffiliationTypes">
+      <wsdl:input name="findAllAffiliationTypes" message="tns:findAllAffiliationTypes">
+    </wsdl:input>
+      <wsdl:output name="findAllAffiliationTypesResponse" message="tns:findAllAffiliationTypesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getExternalIdentifierType">
+      <wsdl:input name="getExternalIdentifierType" message="tns:getExternalIdentifierType">
+    </wsdl:input>
+      <wsdl:output name="getExternalIdentifierTypeResponse" message="tns:getExternalIdentifierTypeResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEmailType">
+      <wsdl:input name="getEmailType" message="tns:getEmailType">
+    </wsdl:input>
+      <wsdl:output name="getEmailTypeResponse" message="tns:getEmailTypeResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addResidencyToEntity">
+      <wsdl:input name="addResidencyToEntity" message="tns:addResidencyToEntity">
+    </wsdl:input>
+      <wsdl:output name="addResidencyToEntityResponse" message="tns:addResidencyToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityType">
+      <wsdl:input name="getEntityType" message="tns:getEntityType">
+    </wsdl:input>
+      <wsdl:output name="getEntityTypeResponse" message="tns:getEntityTypeResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAddressType">
+      <wsdl:input name="getAddressType" message="tns:getAddressType">
+    </wsdl:input>
+      <wsdl:output name="getAddressTypeResponse" message="tns:getAddressTypeResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getNameType">
+      <wsdl:input name="getNameType" message="tns:getNameType">
+    </wsdl:input>
+      <wsdl:output name="getNameTypeResponse" message="tns:getNameTypeResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateResidency">
+      <wsdl:input name="updateResidency" message="tns:updateResidency">
+    </wsdl:input>
+      <wsdl:output name="updateResidencyResponse" message="tns:updateResidencyResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityDefaultByPrincipalId">
+      <wsdl:input name="getEntityDefaultByPrincipalId" message="tns:getEntityDefaultByPrincipalId">
+    </wsdl:input>
+      <wsdl:output name="getEntityDefaultByPrincipalIdResponse" message="tns:getEntityDefaultByPrincipalIdResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addPrivacyPreferencesToEntity">
+      <wsdl:input name="addPrivacyPreferencesToEntity" message="tns:addPrivacyPreferencesToEntity">
+    </wsdl:input>
+      <wsdl:output name="addPrivacyPreferencesToEntityResponse" message="tns:addPrivacyPreferencesToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addAffiliationToEntity">
+      <wsdl:input name="addAffiliationToEntity" message="tns:addAffiliationToEntity">
+    </wsdl:input>
+      <wsdl:output name="addAffiliationToEntityResponse" message="tns:addAffiliationToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityByPrincipalName">
+      <wsdl:input name="getEntityByPrincipalName" message="tns:getEntityByPrincipalName">
+    </wsdl:input>
+      <wsdl:output name="getEntityByPrincipalNameResponse" message="tns:getEntityByPrincipalNameResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllNameTypes">
+      <wsdl:input name="findAllNameTypes" message="tns:findAllNameTypes">
+    </wsdl:input>
+      <wsdl:output name="findAllNameTypesResponse" message="tns:findAllNameTypesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addEmailToEntity">
+      <wsdl:input name="addEmailToEntity" message="tns:addEmailToEntity">
+    </wsdl:input>
+      <wsdl:output name="addEmailToEntityResponse" message="tns:addEmailToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findEntities">
+      <wsdl:input name="findEntities" message="tns:findEntities">
+    </wsdl:input>
+      <wsdl:output name="findEntitiesResponse" message="tns:findEntitiesResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEmploymentType">
+      <wsdl:input name="getEmploymentType" message="tns:getEmploymentType">
+    </wsdl:input>
+      <wsdl:output name="getEmploymentTypeResponse" message="tns:getEmploymentTypeResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findEntityDefaults">
+      <wsdl:input name="findEntityDefaults" message="tns:findEntityDefaults">
+    </wsdl:input>
+      <wsdl:output name="findEntityDefaultsResponse" message="tns:findEntityDefaultsResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEmployment">
+      <wsdl:input name="updateEmployment" message="tns:updateEmployment">
+    </wsdl:input>
+      <wsdl:output name="updateEmploymentResponse" message="tns:updateEmploymentResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAffiliationType">
+      <wsdl:input name="getAffiliationType" message="tns:getAffiliationType">
+    </wsdl:input>
+      <wsdl:output name="getAffiliationTypeResponse" message="tns:getAffiliationTypeResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEntity">
+      <wsdl:input name="updateEntity" message="tns:updateEntity">
+    </wsdl:input>
+      <wsdl:output name="updateEntityResponse" message="tns:updateEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivateAffiliation">
+      <wsdl:input name="inactivateAffiliation" message="tns:inactivateAffiliation">
+    </wsdl:input>
+      <wsdl:output name="inactivateAffiliationResponse" message="tns:inactivateAffiliationResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPhoneType">
+      <wsdl:input name="getPhoneType" message="tns:getPhoneType">
+    </wsdl:input>
+      <wsdl:output name="getPhoneTypeResponse" message="tns:getPhoneTypeResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addVisaToEntity">
+      <wsdl:input name="addVisaToEntity" message="tns:addVisaToEntity">
+    </wsdl:input>
+      <wsdl:output name="addVisaToEntityResponse" message="tns:addVisaToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updatePrincipal">
+      <wsdl:input name="updatePrincipal" message="tns:updatePrincipal">
+    </wsdl:input>
+      <wsdl:output name="updatePrincipalResponse" message="tns:updatePrincipalResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateVisa">
+      <wsdl:input name="updateVisa" message="tns:updateVisa">
+    </wsdl:input>
+      <wsdl:output name="updateVisaResponse" message="tns:updateVisaResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addPhoneToEntity">
+      <wsdl:input name="addPhoneToEntity" message="tns:addPhoneToEntity">
+    </wsdl:input>
+      <wsdl:output name="addPhoneToEntityResponse" message="tns:addPhoneToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityDefault">
+      <wsdl:input name="getEntityDefault" message="tns:getEntityDefault">
+    </wsdl:input>
+      <wsdl:output name="getEntityDefaultResponse" message="tns:getEntityDefaultResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllEntityTypes">
+      <wsdl:input name="findAllEntityTypes" message="tns:findAllEntityTypes">
+    </wsdl:input>
+      <wsdl:output name="findAllEntityTypesResponse" message="tns:findAllEntityTypesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllEmploymentStatuses">
+      <wsdl:input name="findAllEmploymentStatuses" message="tns:findAllEmploymentStatuses">
+    </wsdl:input>
+      <wsdl:output name="findAllEmploymentStatusesResponse" message="tns:findAllEmploymentStatusesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllExternalIdentifierTypeTypes">
+      <wsdl:input name="findAllExternalIdentifierTypeTypes" message="tns:findAllExternalIdentifierTypeTypes">
+    </wsdl:input>
+      <wsdl:output name="findAllExternalIdentifierTypeTypesResponse" message="tns:findAllExternalIdentifierTypeTypesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllAddressTypes">
+      <wsdl:input name="findAllAddressTypes" message="tns:findAllAddressTypes">
+    </wsdl:input>
+      <wsdl:output name="findAllAddressTypesResponse" message="tns:findAllAddressTypesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addEmploymentToEntity">
+      <wsdl:input name="addEmploymentToEntity" message="tns:addEmploymentToEntity">
+    </wsdl:input>
+      <wsdl:output name="addEmploymentToEntityResponse" message="tns:addEmploymentToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addBioDemographicsToEntity">
+      <wsdl:input name="addBioDemographicsToEntity" message="tns:addBioDemographicsToEntity">
+    </wsdl:input>
+      <wsdl:output name="addBioDemographicsToEntityResponse" message="tns:addBioDemographicsToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivateEmail">
+      <wsdl:input name="inactivateEmail" message="tns:inactivateEmail">
+    </wsdl:input>
+      <wsdl:output name="inactivateEmailResponse" message="tns:inactivateEmailResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivateEntity">
+      <wsdl:input name="inactivateEntity" message="tns:inactivateEntity">
+    </wsdl:input>
+      <wsdl:output name="inactivateEntityResponse" message="tns:inactivateEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllCitizenshipStatuses">
+      <wsdl:input name="findAllCitizenshipStatuses" message="tns:findAllCitizenshipStatuses">
+    </wsdl:input>
+      <wsdl:output name="findAllCitizenshipStatusesResponse" message="tns:findAllCitizenshipStatusesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAffiliation">
+      <wsdl:input name="updateAffiliation" message="tns:updateAffiliation">
+    </wsdl:input>
+      <wsdl:output name="updateAffiliationResponse" message="tns:updateAffiliationResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEmploymentStatus">
+      <wsdl:input name="getEmploymentStatus" message="tns:getEmploymentStatus">
+    </wsdl:input>
+      <wsdl:output name="getEmploymentStatusResponse" message="tns:getEmploymentStatusResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addEntityTypeContactInfoToEntity">
+      <wsdl:input name="addEntityTypeContactInfoToEntity" message="tns:addEntityTypeContactInfoToEntity">
+    </wsdl:input>
+      <wsdl:output name="addEntityTypeContactInfoToEntityResponse" message="tns:addEntityTypeContactInfoToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllEmailTypes">
+      <wsdl:input name="findAllEmailTypes" message="tns:findAllEmailTypes">
+    </wsdl:input>
+      <wsdl:output name="findAllEmailTypesResponse" message="tns:findAllEmailTypesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrincipalByPrincipalNameAndPassword">
+      <wsdl:input name="getPrincipalByPrincipalNameAndPassword" message="tns:getPrincipalByPrincipalNameAndPassword">
+    </wsdl:input>
+      <wsdl:output name="getPrincipalByPrincipalNameAndPasswordResponse" message="tns:getPrincipalByPrincipalNameAndPasswordResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updatePhone">
+      <wsdl:input name="updatePhone" message="tns:updatePhone">
+    </wsdl:input>
+      <wsdl:output name="updatePhoneResponse" message="tns:updatePhoneResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityByPrincipalId">
+      <wsdl:input name="getEntityByPrincipalId" message="tns:getEntityByPrincipalId">
+    </wsdl:input>
+      <wsdl:output name="getEntityByPrincipalIdResponse" message="tns:getEntityByPrincipalIdResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEmail">
+      <wsdl:input name="updateEmail" message="tns:updateEmail">
+    </wsdl:input>
+      <wsdl:output name="updateEmailResponse" message="tns:updateEmailResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateName">
+      <wsdl:input name="updateName" message="tns:updateName">
+    </wsdl:input>
+      <wsdl:output name="updateNameResponse" message="tns:updateNameResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityDefaultByEmployeeId">
+      <wsdl:input name="getEntityDefaultByEmployeeId" message="tns:getEntityDefaultByEmployeeId">
+    </wsdl:input>
+      <wsdl:output name="getEntityDefaultByEmployeeIdResponse" message="tns:getEntityDefaultByEmployeeIdResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivateAddress">
+      <wsdl:input name="inactivateAddress" message="tns:inactivateAddress">
+    </wsdl:input>
+      <wsdl:output name="inactivateAddressResponse" message="tns:inactivateAddressResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateBioDemographics">
+      <wsdl:input name="updateBioDemographics" message="tns:updateBioDemographics">
+    </wsdl:input>
+      <wsdl:output name="updateBioDemographicsResponse" message="tns:updateBioDemographicsResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllEmploymentTypes">
+      <wsdl:input name="findAllEmploymentTypes" message="tns:findAllEmploymentTypes">
+    </wsdl:input>
+      <wsdl:output name="findAllEmploymentTypesResponse" message="tns:findAllEmploymentTypesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAddressToEntity">
+      <wsdl:input name="addAddressToEntity" message="tns:addAddressToEntity">
+    </wsdl:input>
+      <wsdl:output name="addAddressToEntityResponse" message="tns:addAddressToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivateName">
+      <wsdl:input name="inactivateName" message="tns:inactivateName">
+    </wsdl:input>
+      <wsdl:output name="inactivateNameResponse" message="tns:inactivateNameResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEthnicity">
+      <wsdl:input name="updateEthnicity" message="tns:updateEthnicity">
+    </wsdl:input>
+      <wsdl:output name="updateEthnicityResponse" message="tns:updateEthnicityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivatePhone">
+      <wsdl:input name="inactivatePhone" message="tns:inactivatePhone">
+    </wsdl:input>
+      <wsdl:output name="inactivatePhoneResponse" message="tns:inactivatePhoneResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updatePrivacyPreferences">
+      <wsdl:input name="updatePrivacyPreferences" message="tns:updatePrivacyPreferences">
+    </wsdl:input>
+      <wsdl:output name="updatePrivacyPreferencesResponse" message="tns:updatePrivacyPreferencesResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityByEmployeeId">
+      <wsdl:input name="getEntityByEmployeeId" message="tns:getEntityByEmployeeId">
+    </wsdl:input>
+      <wsdl:output name="getEntityByEmployeeIdResponse" message="tns:getEntityByEmployeeIdResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addExternalIdentifierToEntity">
+      <wsdl:input name="addExternalIdentifierToEntity" message="tns:addExternalIdentifierToEntity">
+    </wsdl:input>
+      <wsdl:output name="addExternalIdentifierToEntityResponse" message="tns:addExternalIdentifierToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPrincipals">
+      <wsdl:input name="getPrincipals" message="tns:getPrincipals">
+    </wsdl:input>
+      <wsdl:output name="getPrincipalsResponse" message="tns:getPrincipalsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPrincipalToEntity">
+      <wsdl:input name="addPrincipalToEntity" message="tns:addPrincipalToEntity">
+    </wsdl:input>
+      <wsdl:output name="addPrincipalToEntityResponse" message="tns:addPrincipalToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityDefaultByPrincipalName">
+      <wsdl:input name="getEntityDefaultByPrincipalName" message="tns:getEntityDefaultByPrincipalName">
+    </wsdl:input>
+      <wsdl:output name="getEntityDefaultByPrincipalNameResponse" message="tns:getEntityDefaultByPrincipalNameResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createEntity">
+      <wsdl:input name="createEntity" message="tns:createEntity">
+    </wsdl:input>
+      <wsdl:output name="createEntityResponse" message="tns:createEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addCitizenshipToEntity">
+      <wsdl:input name="addCitizenshipToEntity" message="tns:addCitizenshipToEntity">
+    </wsdl:input>
+      <wsdl:output name="addCitizenshipToEntityResponse" message="tns:addCitizenshipToEntityResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityPrivacyPreferences">
+      <wsdl:input name="getEntityPrivacyPreferences" message="tns:getEntityPrivacyPreferences">
+    </wsdl:input>
+      <wsdl:output name="getEntityPrivacyPreferencesResponse" message="tns:getEntityPrivacyPreferencesResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllPhoneTypes">
+      <wsdl:input name="findAllPhoneTypes" message="tns:findAllPhoneTypes">
+    </wsdl:input>
+      <wsdl:output name="findAllPhoneTypesResponse" message="tns:findAllPhoneTypesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrincipal">
+      <wsdl:input name="getPrincipal" message="tns:getPrincipal">
+    </wsdl:input>
+      <wsdl:output name="getPrincipalResponse" message="tns:getPrincipalResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEntityTypeContactInfo">
+      <wsdl:input name="updateEntityTypeContactInfo" message="tns:updateEntityTypeContactInfo">
+    </wsdl:input>
+      <wsdl:output name="updateEntityTypeContactInfoResponse" message="tns:updateEntityTypeContactInfoResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IdentityServiceServiceSoapBinding" type="tns:identityService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="inactivateEmployment">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inactivateEmployment">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inactivateEmploymentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateCitizenship">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateCitizenship">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateCitizenshipResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateExternalIdentifier">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateExternalIdentifier">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateExternalIdentifierResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPrincipals">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findPrincipals">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findPrincipalsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addEthnicityToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addEthnicityToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addEthnicityToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivateEntityTypeContactInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inactivateEntityTypeContactInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inactivateEntityTypeContactInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivatePrincipal">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inactivatePrincipal">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inactivatePrincipalResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addNameToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addNameToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addNameToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDefaultNamesForPrincipalId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDefaultNamesForPrincipalId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDefaultNamesForPrincipalIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrincipalByPrincipalName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPrincipalByPrincipalName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPrincipalByPrincipalNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivateCitizenship">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inactivateCitizenship">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inactivateCitizenshipResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateAddress">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateAddress">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateAddressResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCitizenshipStatus">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCitizenshipStatus">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCitizenshipStatusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllAffiliationTypes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllAffiliationTypes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllAffiliationTypesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inactivatePrincipalByName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inactivatePrincipalByName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inactivatePrincipalByNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getExternalIdentifierType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getExternalIdentifierType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getExternalIdentifierTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addResidencyToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addResidencyToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addResidencyToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEmailType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmailType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmailTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntityType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntityTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAddressType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAddressType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAddressTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getNameType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNameType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNameTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateResidency">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateResidency">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateResidencyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addAffiliationToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addAffiliationToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addAffiliationToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addPrivacyPreferencesToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addPrivacyPreferencesToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addPrivacyPreferencesToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityDefaultByPrincipalId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntityDefaultByPrincipalId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntityDefaultByPrincipalIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityByPrincipalName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntityByPrincipalName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntityByPrincipalNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addEmailToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addEmailToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addEmailToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllNameTypes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllNameTypes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllNameTypesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findEntities">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findEntities">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findEntitiesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findEntityDefaults">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findEntityDefaults">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findEntityDefaultsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEmploymentType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmploymentType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmploymentTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAffiliationType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAffiliationType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAffiliationTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEmployment">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateEmployment">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateEmploymentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivateAffiliation">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inactivateAffiliation">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inactivateAffiliationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPhoneType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPhoneType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPhoneTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addVisaToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addVisaToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addVisaToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updatePrincipal">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updatePrincipal">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updatePrincipalResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addPhoneToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addPhoneToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addPhoneToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateVisa">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateVisa">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateVisaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllEntityTypes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllEntityTypes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllEntityTypesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityDefault">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntityDefault">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntityDefaultResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllEmploymentStatuses">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllEmploymentStatuses">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllEmploymentStatusesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllExternalIdentifierTypeTypes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllExternalIdentifierTypeTypes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllExternalIdentifierTypeTypesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addBioDemographicsToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addBioDemographicsToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addBioDemographicsToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addEmploymentToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addEmploymentToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addEmploymentToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllAddressTypes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllAddressTypes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllAddressTypesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inactivateEmail">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inactivateEmail">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inactivateEmailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivateEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inactivateEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inactivateEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllCitizenshipStatuses">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllCitizenshipStatuses">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllCitizenshipStatusesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addEntityTypeContactInfoToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addEntityTypeContactInfoToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addEntityTypeContactInfoToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEmploymentStatus">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmploymentStatus">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmploymentStatusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateAffiliation">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateAffiliation">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateAffiliationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllEmailTypes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllEmailTypes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllEmailTypesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrincipalByPrincipalNameAndPassword">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPrincipalByPrincipalNameAndPassword">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPrincipalByPrincipalNameAndPasswordResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityByPrincipalId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntityByPrincipalId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntityByPrincipalIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updatePhone">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updatePhone">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updatePhoneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEmail">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateEmail">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateEmailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityDefaultByEmployeeId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntityDefaultByEmployeeId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntityDefaultByEmployeeIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivateAddress">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inactivateAddress">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inactivateAddressResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateBioDemographics">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateBioDemographics">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateBioDemographicsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllEmploymentTypes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllEmploymentTypes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllEmploymentTypesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAddressToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addAddressToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addAddressToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivateName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inactivateName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inactivateNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEthnicity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateEthnicity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateEthnicityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inactivatePhone">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inactivatePhone">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inactivatePhoneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityByEmployeeId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntityByEmployeeId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntityByEmployeeIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updatePrivacyPreferences">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updatePrivacyPreferences">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updatePrivacyPreferencesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addExternalIdentifierToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addExternalIdentifierToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addExternalIdentifierToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPrincipals">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPrincipals">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPrincipalsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPrincipalToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addPrincipalToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addPrincipalToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityDefaultByPrincipalName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntityDefaultByPrincipalName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntityDefaultByPrincipalNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addCitizenshipToEntity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addCitizenshipToEntity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addCitizenshipToEntityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEntityPrivacyPreferences">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntityPrivacyPreferences">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntityPrivacyPreferencesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAllPhoneTypes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllPhoneTypes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllPhoneTypesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrincipal">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPrincipal">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPrincipalResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEntityTypeContactInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateEntityTypeContactInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateEntityTypeContactInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IdentityService">
+    <wsdl:port name="identityServicePort" binding="tns:IdentityServiceServiceSoapBinding">
+      <soap:address location="http://localhost:9090/identityServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

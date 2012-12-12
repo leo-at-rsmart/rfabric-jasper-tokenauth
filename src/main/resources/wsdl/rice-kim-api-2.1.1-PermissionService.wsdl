@@ -1,0 +1,1417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="PermissionService" targetNamespace="http://rice.kuali.org/kim/v2_0" xmlns:ns1="http://rice.kuali.org/core/v2_0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://rice.kuali.org/kim/v2_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://rice.kuali.org/core/v2_0" xmlns:tns="http://rice.kuali.org/kim/v2_0" elementFormDefault="qualified" targetNamespace="http://rice.kuali.org/kim/v2_0" version="1.0">
+<xs:import namespace="http://rice.kuali.org/core/v2_0"/>
+<xs:element name="assignee" type="tns:assigneeType"/>
+<xs:element name="createPermission" type="tns:createPermission"/>
+<xs:element name="createPermissionResponse" type="tns:createPermissionResponse"/>
+<xs:element name="delegateMember" type="tns:DelegateMemberType"/>
+<xs:element name="delegateType" type="tns:DelegateTypeType"/>
+<xs:element name="findPermByNamespaceCodeAndName" type="tns:findPermByNamespaceCodeAndName"/>
+<xs:element name="findPermByNamespaceCodeAndNameResponse" type="tns:findPermByNamespaceCodeAndNameResponse"/>
+<xs:element name="findPermTemplateByNamespaceCodeAndName" type="tns:findPermTemplateByNamespaceCodeAndName"/>
+<xs:element name="findPermTemplateByNamespaceCodeAndNameResponse" type="tns:findPermTemplateByNamespaceCodeAndNameResponse"/>
+<xs:element name="findPermissionTemplates" type="tns:findPermissionTemplates"/>
+<xs:element name="findPermissionTemplatesResponse" type="tns:findPermissionTemplatesResponse"/>
+<xs:element name="findPermissions" type="tns:findPermissions"/>
+<xs:element name="findPermissionsByTemplate" type="tns:findPermissionsByTemplate"/>
+<xs:element name="findPermissionsByTemplateResponse" type="tns:findPermissionsByTemplateResponse"/>
+<xs:element name="findPermissionsResponse" type="tns:findPermissionsResponse"/>
+<xs:element name="getAllTemplates" type="tns:getAllTemplates"/>
+<xs:element name="getAllTemplatesResponse" type="tns:getAllTemplatesResponse"/>
+<xs:element name="getAuthorizedPermissions" type="tns:getAuthorizedPermissions"/>
+<xs:element name="getAuthorizedPermissionsByTemplate" type="tns:getAuthorizedPermissionsByTemplate"/>
+<xs:element name="getAuthorizedPermissionsByTemplateResponse" type="tns:getAuthorizedPermissionsByTemplateResponse"/>
+<xs:element name="getAuthorizedPermissionsResponse" type="tns:getAuthorizedPermissionsResponse"/>
+<xs:element name="getPermission" type="tns:getPermission"/>
+<xs:element name="getPermissionAssignees" type="tns:getPermissionAssignees"/>
+<xs:element name="getPermissionAssigneesByTemplate" type="tns:getPermissionAssigneesByTemplate"/>
+<xs:element name="getPermissionAssigneesByTemplateResponse" type="tns:getPermissionAssigneesByTemplateResponse"/>
+<xs:element name="getPermissionAssigneesResponse" type="tns:getPermissionAssigneesResponse"/>
+<xs:element name="getPermissionResponse" type="tns:getPermissionResponse"/>
+<xs:element name="getPermissionTemplate" type="tns:getPermissionTemplate"/>
+<xs:element name="getPermissionTemplateResponse" type="tns:getPermissionTemplateResponse"/>
+<xs:element name="getRoleIdsForPermission" type="tns:getRoleIdsForPermission"/>
+<xs:element name="getRoleIdsForPermissionResponse" type="tns:getRoleIdsForPermissionResponse"/>
+<xs:element name="hasPermission" type="tns:hasPermission"/>
+<xs:element name="hasPermissionByTemplate" type="tns:hasPermissionByTemplate"/>
+<xs:element name="hasPermissionByTemplateResponse" type="tns:hasPermissionByTemplateResponse"/>
+<xs:element name="hasPermissionResponse" type="tns:hasPermissionResponse"/>
+<xs:element name="isAuthorized" type="tns:isAuthorized"/>
+<xs:element name="isAuthorizedByTemplate" type="tns:isAuthorizedByTemplate"/>
+<xs:element name="isAuthorizedByTemplateResponse" type="tns:isAuthorizedByTemplateResponse"/>
+<xs:element name="isAuthorizedResponse" type="tns:isAuthorizedResponse"/>
+<xs:element name="isPermissionDefined" type="tns:isPermissionDefined"/>
+<xs:element name="isPermissionDefinedByTemplate" type="tns:isPermissionDefinedByTemplate"/>
+<xs:element name="isPermissionDefinedByTemplateResponse" type="tns:isPermissionDefinedByTemplateResponse"/>
+<xs:element name="isPermissionDefinedResponse" type="tns:isPermissionDefinedResponse"/>
+<xs:element name="permission" type="tns:PermissionType"/>
+<xs:element name="permissionQueryResults" type="tns:PermissionQueryResultsType"/>
+<xs:element name="template" type="tns:TemplateType"/>
+<xs:element name="templateQueryResults" type="tns:TemplateQueryResultsType"/>
+<xs:element name="updatePermission" type="tns:updatePermission"/>
+<xs:element name="updatePermissionResponse" type="tns:updatePermissionResponse"/>
+<xs:complexType name="isPermissionDefinedByTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionTemplateName" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionDetails" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="isPermissionDefinedByTemplateResponse">
+    <xs:sequence>
+      <xs:element name="isPermissionDefinedByTemplate" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getAuthorizedPermissionsByTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionTemplateName" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionDetails" type="ns1:StringMapEntryListType"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getAuthorizedPermissionsByTemplateResponse">
+    <xs:sequence>
+      <xs:element name="permissions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:permission"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="PermissionType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="namespaceCode" type="xs:string"/>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element ref="tns:template"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="attributes" type="ns1:StringMapEntryListType"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="TemplateType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element name="namespaceCode" type="xs:string"/>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element name="kimTypeId" type="xs:string"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:element minOccurs="0" name="objectId" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findPermissionTemplates">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="query" type="ns1:QueryByCriteriaType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findPermissionTemplatesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results" type="tns:TemplateQueryResultsType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="TemplateQueryResultsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:template"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="totalRowCount" type="xs:int"/>
+      <xs:element name="moreResultsAvailable" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findPermTemplateByNamespaceCodeAndName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findPermTemplateByNamespaceCodeAndNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="permissionTemplate" type="tns:TemplateType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPermissionAssigneesByTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionTemplateName" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionDetails" type="ns1:StringMapEntryListType"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPermissionAssigneesByTemplateResponse">
+    <xs:sequence>
+      <xs:element name="assignees">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:assignee"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="assigneeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element name="groupId" type="xs:string"/>
+      <xs:element minOccurs="0" name="delegates">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="delegate" type="tns:DelegateTypeType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="DelegateTypeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+      <xs:element minOccurs="0" name="delegationId" type="xs:string"/>
+      <xs:element minOccurs="0" name="delegationTypeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="kimTypeId" type="xs:string"/>
+      <xs:element minOccurs="0" name="members">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="member" type="tns:DelegateMemberType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="DelegateMemberType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="delegationMemberId" type="xs:string"/>
+      <xs:element minOccurs="0" name="delegationId" type="xs:string"/>
+      <xs:element minOccurs="0" name="memberId" type="xs:string"/>
+      <xs:element minOccurs="0" name="roleMemberId" type="xs:string"/>
+      <xs:element minOccurs="0" name="typeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="attributes" type="ns1:StringMapEntryListType"/>
+      <xs:element minOccurs="0" name="activeFromDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="activeToDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="versionNumber" type="xs:long"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="extension restriction" name="dateTime">
+    <xs:complexContent>
+      <xs:extension base="tns:baseDateTime">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType abstract="true" name="baseDateTime">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractDateTime">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType abstract="true" name="abstractDateTime">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractInstant">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType abstract="true" name="abstractInstant">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPermissionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:permission"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPermissionAssignees">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionName" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPermissionAssigneesResponse">
+    <xs:sequence>
+      <xs:element name="assignees">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:assignee"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findPermissions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="query" type="ns1:QueryByCriteriaType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findPermissionsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results" type="tns:PermissionQueryResultsType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="PermissionQueryResultsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="results">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:permission"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="totalRowCount" type="xs:int"/>
+      <xs:element name="moreResultsAvailable" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getAuthorizedPermissions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionName" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getAuthorizedPermissionsResponse">
+    <xs:sequence>
+      <xs:element name="permissions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:permission"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findPermissionsByTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="templateName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findPermissionsByTemplateResponse">
+    <xs:sequence>
+      <xs:element name="permissions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:permission"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findPermByNamespaceCodeAndName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="findPermByNamespaceCodeAndNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:permission"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getAllTemplates">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getAllTemplatesResponse">
+    <xs:sequence>
+      <xs:element name="templates">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:template"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updatePermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:permission"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="updatePermissionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:permission"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="isAuthorized">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionName" type="xs:string"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="isAuthorizedResponse">
+    <xs:sequence>
+      <xs:element name="isAuthorized" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPermissionTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="requestId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPermissionTemplateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="responseId" type="tns:TemplateType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="hasPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="hasPermissionResponse">
+    <xs:sequence>
+      <xs:element name="hasPermission" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:permission"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createPermissionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="tns:permission"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="hasPermissionByTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionTemplateName" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionDetails" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="hasPermissionByTemplateResponse">
+    <xs:sequence>
+      <xs:element name="hasPermission" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleIdsForPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRoleIdsForPermissionResponse">
+    <xs:sequence>
+      <xs:element name="roleIds">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="roleId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="isPermissionDefined">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="isPermissionDefinedResponse">
+    <xs:sequence>
+      <xs:element name="isPermissionDefined" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="isAuthorizedByTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="principalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="namespaceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionTemplateName" type="xs:string"/>
+      <xs:element minOccurs="0" name="permissionDetails" type="ns1:StringMapEntryListType"/>
+      <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="isAuthorizedByTemplateResponse">
+    <xs:sequence>
+      <xs:element name="isAuthorized" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://rice.kuali.org/core/v2_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://rice.kuali.org/core/v2_0">
+  <xs:element name="and" type="tns:AndType"/>
+  <xs:element name="dateTimeValue" type="tns:CriteriaDateTimeValueType"/>
+  <xs:element name="decimalValue" type="tns:CriteriaDecimalValueType"/>
+  <xs:element name="equal" type="tns:EqualType"/>
+  <xs:element name="equalIgnoreCase" type="tns:EqualIgnoreCaseType"/>
+  <xs:element name="greaterThan" type="tns:GreaterThanType"/>
+  <xs:element name="greaterThanOrEqual" type="tns:GreaterThanOrEqualType"/>
+  <xs:element name="in" type="tns:InType"/>
+  <xs:element name="inIgnoreCase" type="tns:InIgnoreCaseType"/>
+  <xs:element name="integerValue" type="tns:CriteriaIntegerValueType"/>
+  <xs:element name="lessThan" type="tns:LessThanType"/>
+  <xs:element name="lessThanOrEqual" type="tns:LessThanOrEqualType"/>
+  <xs:element name="like" type="tns:LikeType"/>
+  <xs:element name="notEqual" type="tns:NotEqualType"/>
+  <xs:element name="notEqualIgnoreCase" type="tns:NotEqualIgnoreCaseType"/>
+  <xs:element name="notIn" type="tns:NotInType"/>
+  <xs:element name="notInIgnoreCase" type="tns:NotInIgnoreCaseType"/>
+  <xs:element name="notLike" type="tns:NotLikeType"/>
+  <xs:element name="notNull" type="tns:NotNullType"/>
+  <xs:element name="null" type="tns:NullType"/>
+  <xs:element name="or" type="tns:OrType"/>
+  <xs:element name="queryByCriteria" type="tns:QueryByCriteriaType"/>
+  <xs:element name="stringValue" type="tns:CriteriaStringValueType"/>
+  <xs:complexType name="StringMapEntryListType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="entry" type="tns:StringMapEntryType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="StringMapEntryType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="key" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="QueryByCriteriaType">
+    <xs:sequence>
+      <xs:choice minOccurs="0">
+        <xs:element ref="tns:and"/>
+        <xs:element ref="tns:equal"/>
+        <xs:element ref="tns:equalIgnoreCase"/>
+        <xs:element ref="tns:greaterThan"/>
+        <xs:element ref="tns:greaterThanOrEqual"/>
+        <xs:element ref="tns:in"/>
+        <xs:element ref="tns:inIgnoreCase"/>
+        <xs:element ref="tns:lessThan"/>
+        <xs:element ref="tns:lessThanOrEqual"/>
+        <xs:element ref="tns:like"/>
+        <xs:element ref="tns:notEqual"/>
+        <xs:element ref="tns:notEqualIgnoreCase"/>
+        <xs:element ref="tns:notIn"/>
+        <xs:element ref="tns:notInIgnoreCase"/>
+        <xs:element ref="tns:notLike"/>
+        <xs:element ref="tns:notNull"/>
+        <xs:element ref="tns:null"/>
+        <xs:element ref="tns:or"/>
+      </xs:choice>
+      <xs:element minOccurs="0" name="startAtIndex" type="xs:int"/>
+      <xs:element minOccurs="0" name="maxResults" type="xs:int"/>
+      <xs:element name="countFlag" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="AndType">
+    <xs:complexContent>
+      <xs:extension base="tns:CompositePredicateType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="CompositePredicateType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="tns:and"/>
+            <xs:element ref="tns:equal"/>
+            <xs:element ref="tns:equalIgnoreCase"/>
+            <xs:element ref="tns:greaterThan"/>
+            <xs:element ref="tns:greaterThanOrEqual"/>
+            <xs:element ref="tns:in"/>
+            <xs:element ref="tns:inIgnoreCase"/>
+            <xs:element ref="tns:lessThan"/>
+            <xs:element ref="tns:lessThanOrEqual"/>
+            <xs:element ref="tns:like"/>
+            <xs:element ref="tns:notEqual"/>
+            <xs:element ref="tns:notEqualIgnoreCase"/>
+            <xs:element ref="tns:notIn"/>
+            <xs:element ref="tns:notInIgnoreCase"/>
+            <xs:element ref="tns:notLike"/>
+            <xs:element ref="tns:notNull"/>
+            <xs:element ref="tns:null"/>
+            <xs:element ref="tns:or"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="abstractPredicate">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="EqualType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="CriteriaStringValueType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="CriteriaDateTimeValueType">
+    <xs:restriction base="xs:dateTime"/>
+  </xs:simpleType>
+  <xs:simpleType name="CriteriaDecimalValueType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="CriteriaIntegerValueType">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+  <xs:complexType final="extension restriction" name="EqualIgnoreCaseType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:element ref="tns:stringValue"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="GreaterThanType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="GreaterThanOrEqualType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="InType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded">
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:decimalValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="InIgnoreCaseType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" ref="tns:stringValue"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="LessThanType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="LessThanOrEqualType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="LikeType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:element ref="tns:stringValue"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NotEqualType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+            <xs:element ref="tns:decimalValue"/>
+            <xs:element ref="tns:integerValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NotEqualIgnoreCaseType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:element ref="tns:stringValue"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NotInType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded">
+            <xs:element ref="tns:stringValue"/>
+            <xs:element ref="tns:dateTimeValue"/>
+            <xs:element ref="tns:integerValue"/>
+            <xs:element ref="tns:decimalValue"/>
+          </xs:choice>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NotInIgnoreCaseType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" ref="tns:stringValue"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NotLikeType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:element ref="tns:stringValue"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NotNullType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="NullType">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractPredicate">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="propertyPath" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="extension restriction" name="OrType">
+    <xs:complexContent>
+      <xs:extension base="tns:CompositePredicateType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IllegalArgumentFault" type="tns:IllegalArgumentFault"/>
+  <xs:complexType name="IllegalArgumentFault">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:element name="IllegalStateFault" type="tns:IllegalStateFault"/>
+  <xs:complexType name="IllegalStateFault">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="findPermissions">
+    <wsdl:part name="parameters" element="tns:findPermissions">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePermissionResponse">
+    <wsdl:part name="parameters" element="tns:updatePermissionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPermissionAssigneesByTemplate">
+    <wsdl:part name="parameters" element="tns:getPermissionAssigneesByTemplate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPermissionTemplate">
+    <wsdl:part name="parameters" element="tns:getPermissionTemplate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPermissionResponse">
+    <wsdl:part name="parameters" element="tns:getPermissionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isPermissionDefinedByTemplateResponse">
+    <wsdl:part name="parameters" element="tns:isPermissionDefinedByTemplateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleIdsForPermissionResponse">
+    <wsdl:part name="parameters" element="tns:getRoleIdsForPermissionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isAuthorizedResponse">
+    <wsdl:part name="parameters" element="tns:isAuthorizedResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPermissionAssignees">
+    <wsdl:part name="parameters" element="tns:getPermissionAssignees">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuthorizedPermissions">
+    <wsdl:part name="parameters" element="tns:getAuthorizedPermissions">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isAuthorized">
+    <wsdl:part name="parameters" element="tns:isAuthorized">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isPermissionDefinedByTemplate">
+    <wsdl:part name="parameters" element="tns:isPermissionDefinedByTemplate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findPermissionsByTemplateResponse">
+    <wsdl:part name="parameters" element="tns:findPermissionsByTemplateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findPermByNamespaceCodeAndName">
+    <wsdl:part name="parameters" element="tns:findPermByNamespaceCodeAndName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RiceIllegalStateException">
+    <wsdl:part name="RiceIllegalStateException" element="ns1:IllegalStateFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPermissionAssigneesByTemplateResponse">
+    <wsdl:part name="parameters" element="tns:getPermissionAssigneesByTemplateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isPermissionDefinedResponse">
+    <wsdl:part name="parameters" element="tns:isPermissionDefinedResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hasPermissionByTemplateResponse">
+    <wsdl:part name="parameters" element="tns:hasPermissionByTemplateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hasPermissionByTemplate">
+    <wsdl:part name="parameters" element="tns:hasPermissionByTemplate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createPermissionResponse">
+    <wsdl:part name="parameters" element="tns:createPermissionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findPermByNamespaceCodeAndNameResponse">
+    <wsdl:part name="parameters" element="tns:findPermByNamespaceCodeAndNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findPermissionTemplates">
+    <wsdl:part name="parameters" element="tns:findPermissionTemplates">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hasPermission">
+    <wsdl:part name="parameters" element="tns:hasPermission">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isAuthorizedByTemplateResponse">
+    <wsdl:part name="parameters" element="tns:isAuthorizedByTemplateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findPermissionsResponse">
+    <wsdl:part name="parameters" element="tns:findPermissionsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createPermission">
+    <wsdl:part name="parameters" element="tns:createPermission">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuthorizedPermissionsByTemplateResponse">
+    <wsdl:part name="parameters" element="tns:getAuthorizedPermissionsByTemplateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isAuthorizedByTemplate">
+    <wsdl:part name="parameters" element="tns:isAuthorizedByTemplate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePermission">
+    <wsdl:part name="parameters" element="tns:updatePermission">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hasPermissionResponse">
+    <wsdl:part name="parameters" element="tns:hasPermissionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findPermissionTemplatesResponse">
+    <wsdl:part name="parameters" element="tns:findPermissionTemplatesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findPermTemplateByNamespaceCodeAndName">
+    <wsdl:part name="parameters" element="tns:findPermTemplateByNamespaceCodeAndName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuthorizedPermissionsResponse">
+    <wsdl:part name="parameters" element="tns:getAuthorizedPermissionsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPermission">
+    <wsdl:part name="parameters" element="tns:getPermission">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isPermissionDefined">
+    <wsdl:part name="parameters" element="tns:isPermissionDefined">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPermissionTemplateResponse">
+    <wsdl:part name="parameters" element="tns:getPermissionTemplateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPermissionAssigneesResponse">
+    <wsdl:part name="parameters" element="tns:getPermissionAssigneesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuthorizedPermissionsByTemplate">
+    <wsdl:part name="parameters" element="tns:getAuthorizedPermissionsByTemplate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RiceIllegalArgumentException">
+    <wsdl:part name="RiceIllegalArgumentException" element="ns1:IllegalArgumentFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRoleIdsForPermission">
+    <wsdl:part name="parameters" element="tns:getRoleIdsForPermission">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllTemplates">
+    <wsdl:part name="parameters" element="tns:getAllTemplates">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllTemplatesResponse">
+    <wsdl:part name="parameters" element="tns:getAllTemplatesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findPermTemplateByNamespaceCodeAndNameResponse">
+    <wsdl:part name="parameters" element="tns:findPermTemplateByNamespaceCodeAndNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findPermissionsByTemplate">
+    <wsdl:part name="parameters" element="tns:findPermissionsByTemplate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="permissionService">
+    <wsdl:operation name="isPermissionDefinedByTemplate">
+      <wsdl:input name="isPermissionDefinedByTemplate" message="tns:isPermissionDefinedByTemplate">
+    </wsdl:input>
+      <wsdl:output name="isPermissionDefinedByTemplateResponse" message="tns:isPermissionDefinedByTemplateResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthorizedPermissionsByTemplate">
+      <wsdl:input name="getAuthorizedPermissionsByTemplate" message="tns:getAuthorizedPermissionsByTemplate">
+    </wsdl:input>
+      <wsdl:output name="getAuthorizedPermissionsByTemplateResponse" message="tns:getAuthorizedPermissionsByTemplateResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPermissionTemplates">
+      <wsdl:input name="findPermissionTemplates" message="tns:findPermissionTemplates">
+    </wsdl:input>
+      <wsdl:output name="findPermissionTemplatesResponse" message="tns:findPermissionTemplatesResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPermTemplateByNamespaceCodeAndName">
+      <wsdl:input name="findPermTemplateByNamespaceCodeAndName" message="tns:findPermTemplateByNamespaceCodeAndName">
+    </wsdl:input>
+      <wsdl:output name="findPermTemplateByNamespaceCodeAndNameResponse" message="tns:findPermTemplateByNamespaceCodeAndNameResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPermissionAssigneesByTemplate">
+      <wsdl:input name="getPermissionAssigneesByTemplate" message="tns:getPermissionAssigneesByTemplate">
+    </wsdl:input>
+      <wsdl:output name="getPermissionAssigneesByTemplateResponse" message="tns:getPermissionAssigneesByTemplateResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPermission">
+      <wsdl:input name="getPermission" message="tns:getPermission">
+    </wsdl:input>
+      <wsdl:output name="getPermissionResponse" message="tns:getPermissionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPermissionAssignees">
+      <wsdl:input name="getPermissionAssignees" message="tns:getPermissionAssignees">
+    </wsdl:input>
+      <wsdl:output name="getPermissionAssigneesResponse" message="tns:getPermissionAssigneesResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPermissions">
+      <wsdl:input name="findPermissions" message="tns:findPermissions">
+    </wsdl:input>
+      <wsdl:output name="findPermissionsResponse" message="tns:findPermissionsResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthorizedPermissions">
+      <wsdl:input name="getAuthorizedPermissions" message="tns:getAuthorizedPermissions">
+    </wsdl:input>
+      <wsdl:output name="getAuthorizedPermissionsResponse" message="tns:getAuthorizedPermissionsResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPermissionsByTemplate">
+      <wsdl:input name="findPermissionsByTemplate" message="tns:findPermissionsByTemplate">
+    </wsdl:input>
+      <wsdl:output name="findPermissionsByTemplateResponse" message="tns:findPermissionsByTemplateResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPermByNamespaceCodeAndName">
+      <wsdl:input name="findPermByNamespaceCodeAndName" message="tns:findPermByNamespaceCodeAndName">
+    </wsdl:input>
+      <wsdl:output name="findPermByNamespaceCodeAndNameResponse" message="tns:findPermByNamespaceCodeAndNameResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllTemplates">
+      <wsdl:input name="getAllTemplates" message="tns:getAllTemplates">
+    </wsdl:input>
+      <wsdl:output name="getAllTemplatesResponse" message="tns:getAllTemplatesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePermission">
+      <wsdl:input name="updatePermission" message="tns:updatePermission">
+    </wsdl:input>
+      <wsdl:output name="updatePermissionResponse" message="tns:updatePermissionResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isAuthorized">
+      <wsdl:input name="isAuthorized" message="tns:isAuthorized">
+    </wsdl:input>
+      <wsdl:output name="isAuthorizedResponse" message="tns:isAuthorizedResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPermissionTemplate">
+      <wsdl:input name="getPermissionTemplate" message="tns:getPermissionTemplate">
+    </wsdl:input>
+      <wsdl:output name="getPermissionTemplateResponse" message="tns:getPermissionTemplateResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="hasPermission">
+      <wsdl:input name="hasPermission" message="tns:hasPermission">
+    </wsdl:input>
+      <wsdl:output name="hasPermissionResponse" message="tns:hasPermissionResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createPermission">
+      <wsdl:input name="createPermission" message="tns:createPermission">
+    </wsdl:input>
+      <wsdl:output name="createPermissionResponse" message="tns:createPermissionResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException" message="tns:RiceIllegalStateException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="hasPermissionByTemplate">
+      <wsdl:input name="hasPermissionByTemplate" message="tns:hasPermissionByTemplate">
+    </wsdl:input>
+      <wsdl:output name="hasPermissionByTemplateResponse" message="tns:hasPermissionByTemplateResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleIdsForPermission">
+      <wsdl:input name="getRoleIdsForPermission" message="tns:getRoleIdsForPermission">
+    </wsdl:input>
+      <wsdl:output name="getRoleIdsForPermissionResponse" message="tns:getRoleIdsForPermissionResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isPermissionDefined">
+      <wsdl:input name="isPermissionDefined" message="tns:isPermissionDefined">
+    </wsdl:input>
+      <wsdl:output name="isPermissionDefinedResponse" message="tns:isPermissionDefinedResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isAuthorizedByTemplate">
+      <wsdl:input name="isAuthorizedByTemplate" message="tns:isAuthorizedByTemplate">
+    </wsdl:input>
+      <wsdl:output name="isAuthorizedByTemplateResponse" message="tns:isAuthorizedByTemplateResponse">
+    </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException" message="tns:RiceIllegalArgumentException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PermissionServiceServiceSoapBinding" type="tns:permissionService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="isPermissionDefinedByTemplate">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="isPermissionDefinedByTemplate">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isPermissionDefinedByTemplateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPermTemplateByNamespaceCodeAndName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findPermTemplateByNamespaceCodeAndName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findPermTemplateByNamespaceCodeAndNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPermissionTemplates">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findPermissionTemplates">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findPermissionTemplatesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthorizedPermissionsByTemplate">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAuthorizedPermissionsByTemplate">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAuthorizedPermissionsByTemplateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPermissionAssigneesByTemplate">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPermissionAssigneesByTemplate">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPermissionAssigneesByTemplateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPermission">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPermission">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPermissionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPermissionAssignees">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPermissionAssignees">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPermissionAssigneesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthorizedPermissions">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAuthorizedPermissions">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAuthorizedPermissionsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPermissions">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findPermissions">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findPermissionsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPermByNamespaceCodeAndName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findPermByNamespaceCodeAndName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findPermByNamespaceCodeAndNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPermissionsByTemplate">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findPermissionsByTemplate">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findPermissionsByTemplateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllTemplates">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllTemplates">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllTemplatesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePermission">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updatePermission">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updatePermissionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPermissionTemplate">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPermissionTemplate">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPermissionTemplateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isAuthorized">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="isAuthorized">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isAuthorizedResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createPermission">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createPermission">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createPermissionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="RiceIllegalStateException">
+        <soap:fault name="RiceIllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="hasPermission">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="hasPermission">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="hasPermissionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleIdsForPermission">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRoleIdsForPermission">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRoleIdsForPermissionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="hasPermissionByTemplate">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="hasPermissionByTemplate">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="hasPermissionByTemplateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isAuthorizedByTemplate">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="isAuthorizedByTemplate">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isAuthorizedByTemplateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isPermissionDefined">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="isPermissionDefined">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isPermissionDefinedResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RiceIllegalArgumentException">
+        <soap:fault name="RiceIllegalArgumentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PermissionService">
+    <wsdl:port name="permissionServicePort" binding="tns:PermissionServiceServiceSoapBinding">
+      <soap:address location="http://localhost:9090/permissionServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
