@@ -50,6 +50,9 @@
         </map>
       </property>
     </bean>
+    <bean id="kimUserProvider" class="com.rsmart.rfabric.jasperreports.auth.KimUserProvider">
+    </bean>
+
     <bean id="authTokenAuthenticationProvider" class="com.rsmart.rfabric.jasperreports.auth.AuthTokenAuthenticationProvider">
       <property name="secret" value="secretkey"/>
       <property name="externalUserProvider">
