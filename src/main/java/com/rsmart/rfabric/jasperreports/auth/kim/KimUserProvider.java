@@ -1,6 +1,13 @@
 package com.rsmart.rfabric.jasperreports.auth.kim;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.kuali.rice.kim.v2_0.*;
+
+import org.apache.cxf.endpoint.Client;
+import org.apache.cxf.frontend.ClientProxy;
+import org.apache.cxf.message.Message;
 
 import org.springframework.security.GrantedAuthority;
 
@@ -10,7 +17,45 @@ public class KimUserProvider implements ExternalUserProvider {
     protected IdentityService_Service identityService;
     protected RoleService_Service roleService;
     protected PermissionService_Service permissionService;
+    protected List<String> availableAuthorities;
+    protected String endpointUrl;
 
+    /**
+     * Gets the value of endpointUrl
+     *
+     * @return the value of endpointUrl
+     */
+    public final String getEndpointUrl() {
+        return this.endpointUrl;
+    }
+
+    /**
+     * Sets the value of endpointUrl
+     *
+     * @param argEndpointUrl Value to assign to this.endpointUrl
+     */
+    public final void setEndpointUrl(final String argEndpointUrl) {
+        this.endpointUrl = argEndpointUrl;
+    }
+
+
+    /**
+     * Gets the value of availableAuthorities
+     *
+     * @return the value of availableAuthorities
+     */
+    public List<String> getAvailableAuthorities() {
+        return this.availableAuthorities;
+    }
+
+    /**
+     * Sets the value of availableAuthorities
+     *
+     * @param argAvailableAuthorities Value to assign to this.availableAuthorities
+     */
+    public void setAvailableAuthorities(final List<String> argAvailableAuthorities) {
+        this.availableAuthorities = argAvailableAuthorities;
+    }
 
     public boolean userExists(String user) {
         return getKimIdentityService().getPrincipalByPrincipalName(user) != null;
@@ -18,24 +63,25 @@ public class KimUserProvider implements ExternalUserProvider {
 
     @SuppressWarnings("serial")
     public GrantedAuthority[] getAuthoritiesForUser(String user) {
-        // TODO Determine what roles the user should have based upon roles in KIM
-    
-        // for now this is just a mock implementaiton that gives the user admin role
-        GrantedAuthority[] mockAuthorities = new GrantedAuthority[1];
-    
-        mockAuthorities[0] = new GrantedAuthority() {
-
-                public int compareTo(Object o) {
-                    GrantedAuthority that = (GrantedAuthority)o;
-                    return getAuthority().compareTo(that.getAuthority());
-                }
-
-                public String getAuthority() {
-                    return "ROLE_ADMIN";
-                }
-      
-            };
-        return mockAuthorities;
+        final List<GrantedAuthority> authorities = new LinkedList<GrantedAuthority>();
+        
+        for (final String authorityName : availableAuthorities) {
+            if (getKimPermissionService().hasPermission(user, "KR-SYS", authorityName)) {
+                authorities.add(new GrantedAuthority() {
+                        
+                        public int compareTo(Object o) {
+                            GrantedAuthority that = (GrantedAuthority)o;
+                            return getAuthority().compareTo(that.getAuthority());
+                        }
+                        
+                        public String getAuthority() {
+                            return authorityName;
+                        }
+                    });
+            }
+        }
+        final GrantedAuthority[] retval = new GrantedAuthority[authorities.size()];
+        return authorities.toArray(retval);
     }
 
     public IdentityService getKimIdentityService() {
@@ -58,6 +104,9 @@ public class KimUserProvider implements ExternalUserProvider {
      */
     public void setIdentityService(final IdentityService_Service argIdentityService) {
         this.identityService = argIdentityService;
+
+        final Client client = ClientProxy.getClient(getKimIdentityService());
+        client.getRequestContext().put(Message.ENDPOINT_ADDRESS, getEndpointUrl()) ;        
     }
 
     public RoleService getKimRoleService() {
@@ -80,6 +129,9 @@ public class KimUserProvider implements ExternalUserProvider {
      */
     public void setRoleService(final RoleService_Service argRoleService) {
         this.roleService = argRoleService;
+
+        final Client client = ClientProxy.getClient(getKimRoleService());
+        client.getRequestContext().put(Message.ENDPOINT_ADDRESS, getEndpointUrl()) ;        
     }
 
     
@@ -103,5 +155,8 @@ public class KimUserProvider implements ExternalUserProvider {
      */
     public void setPermissionService(final PermissionService_Service argPermissionService) {
         this.permissionService = argPermissionService;
+
+        final Client client = ClientProxy.getClient(getKimPermissionService());
+        client.getRequestContext().put(Message.ENDPOINT_ADDRESS, getEndpointUrl()) ;        
     }
 }
