@@ -13,12 +13,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <cxf.version>2.7.1</cxf.version>
-    <jasperserver-repo>http://jasperforge.org/svn/repos/maven2/</jasperserver-repo>
-    <kim.endpoint.url>http://localhost:8080/kr-dev/kim/remoting/</kim.endpoint.url>
     <rice.version>2.1.1</rice.version>
-    <kim.identityservice.wsdl>http://maven.kuali.org.s3.amazonaws.com/release/org/kuali/rice/rice-kim-api/${rice.version}/rice-kim-api-${rice.version}-IdentityService.wsdl</kim.identityservice.wsdl>
-    <kim.permissionservice.wsdl>http://maven.kuali.org.s3.amazonaws.com/release/org/kuali/rice/rice-kim-api/${rice.version}/rice-kim-api-${rice.version}-PermissionService.wsdl</kim.permissionservice.wsdl>
-    <kim.roleservice.wsdl>http://maven.kuali.org.s3.amazonaws.com/release/org/kuali/rice/rice-kim-api/${rice.version}/rice-kim-api-${rice.version}-RoleService.wsdl</kim.roleservice.wsdl>
+    <jasperserver-repo>http://jasperforge.org/svn/repos/maven2/</jasperserver-repo>
   </properties>
   
   <dependencies>
@@ -146,13 +142,13 @@
               <sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
               <wsdlOptions>
                 <wsdlOption>
-                  <wsdl>${kim.identityservice.wsdl}</wsdl>
+                  <wsdl>src/main/resources/wsdl/rice-kim-api-2.1.1-IdentityService.wsdl</wsdl>
                 </wsdlOption>
                 <wsdlOption>
-                  <wsdl>${kim.permissionservice.wsdl}</wsdl>
+                  <wsdl>src/main/resources/wsdl/rice-kim-api-2.1.1-PermissionService.wsdl</wsdl>
                 </wsdlOption>
                 <wsdlOption>
-                  <wsdl>${kim.roleservice.wsdl}</wsdl>
+                  <wsdl>src/main/resources/wsdl/rice-kim-api-2.1.1-RoleService.wsdl</wsdl>
                 </wsdlOption>
               </wsdlOptions>
 			</configuration>
@@ -161,6 +157,15 @@
 			</goals>
           </execution>
         </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.kuali.rice</groupId>
+            <artifactId>rice-kim-api</artifactId>
+            <version>${rice.version}</version>
+            <classifier>PermissionService</classifier>
+            <type>wsdl</type>
+          </dependency>
+        </dependencies>
       </plugin>      
     </plugins>
   </build>

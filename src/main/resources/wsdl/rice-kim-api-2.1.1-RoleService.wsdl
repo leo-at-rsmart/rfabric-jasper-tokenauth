@@ -510,7 +510,7 @@
   </xs:complexType>
 <xs:complexType name="getPrincipalIdSubListWithRole">
     <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="principalIds" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="requestPrincipalIds" type="xs:string"/>
       <xs:element minOccurs="0" name="roleNamespaceCode" type="xs:string"/>
       <xs:element minOccurs="0" name="roleName" type="xs:string"/>
       <xs:element minOccurs="0" name="qualification" type="ns1:StringMapEntryListType"/>
@@ -518,7 +518,7 @@
   </xs:complexType>
 <xs:complexType name="getPrincipalIdSubListWithRoleResponse">
     <xs:sequence>
-      <xs:element name="principalIds">
+      <xs:element name="responsePrincipalIds">
         <xs:complexType>
           <xs:sequence>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="principalId" type="xs:string"/>
