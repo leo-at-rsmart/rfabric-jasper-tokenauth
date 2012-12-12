@@ -18,6 +18,12 @@
   </properties>
   
   <dependencies>
+    <!-- Web Services dependencies -->
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-bundle</artifactId>
+      <version>${cxf.version}</version>
+    </dependency>
     
     <!-- JasperReports dependencies -->
     <dependency>
