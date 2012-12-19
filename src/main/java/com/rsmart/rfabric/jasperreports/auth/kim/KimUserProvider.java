@@ -13,6 +13,8 @@ import org.springframework.security.GrantedAuthority;
 
 import com.rsmart.rfabric.jasperreports.auth.ExternalUserProvider;
 
+import static com.rsmart.rfabric.logging.FormattedLogger.*;
+
 public class KimUserProvider implements ExternalUserProvider {
     protected IdentityService_Service identityService;
     protected RoleService_Service roleService;
@@ -57,27 +59,32 @@ public class KimUserProvider implements ExternalUserProvider {
         this.availableAuthorities = argAvailableAuthorities;
     }
 
-    public boolean userExists(String user) {
-        return getKimIdentityService().getPrincipalByPrincipalName(user) != null;
+    public boolean userExists(final String user) throws Exception {
+        return getKimIdentityService().getPrincipalByPrincipalName(new GetPrincipalByPrincipalName() {{ setPrincipalName(user); }}) != null;
     }
 
     @SuppressWarnings("serial")
-    public GrantedAuthority[] getAuthoritiesForUser(String user) {
+    public GrantedAuthority[] getAuthoritiesForUser(final String user) {
         final List<GrantedAuthority> authorities = new LinkedList<GrantedAuthority>();
         
         for (final String authorityName : availableAuthorities) {
-            if (getKimPermissionService().hasPermission(user, "KR-SYS", authorityName)) {
-                authorities.add(new GrantedAuthority() {
-                        
-                        public int compareTo(Object o) {
-                            GrantedAuthority that = (GrantedAuthority)o;
-                            return getAuthority().compareTo(that.getAuthority());
-                        }
-                        
-                        public String getAuthority() {
-                            return authorityName;
-                        }
-                    });
+            try {
+                if (getKimPermissionService().hasPermission(user, "KR-SYS", authorityName)) {
+                    authorities.add(new GrantedAuthority() {
+                            
+                            public int compareTo(Object o) {
+                                GrantedAuthority that = (GrantedAuthority)o;
+                                return getAuthority().compareTo(that.getAuthority());
+                            }
+                            
+                            public String getAuthority() {
+                                return authorityName;
+                            }
+                        });
+                }
+            }
+            catch (Exception e) {
+                warn("Unable to determine permissions for: %s: reason: %s", user, e.getMessage());
             }
         }
         final GrantedAuthority[] retval = new GrantedAuthority[authorities.size()];

@@ -14,7 +14,7 @@ public interface ExternalUserProvider {
    * @param user
    * @return
    */
-  public boolean userExists(String user);
+  public boolean userExists(String user) throws Exception;
   
   /**
    * Returns the roles filled by the given user.
